@@ -19,6 +19,13 @@ ___negrito e italico___
 - Lista 2
   - Sublista
 
+
+[Texto da imagem](https://img.freepik.com/fotos-premium/por-do-sol-no-mar_69709-957.jpg)
+
+![Imagem de Teste](https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg)
+
+
+
 <!--
 **kleber-data/kleber-data** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
@@ -33,3 +40,6 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+
+[def]: https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg
