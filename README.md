@@ -1,9 +1,15 @@
 ##  Sejam Bem-Vindos ao Meu Mundo!
 
 ![Gif Banco de Dados](https://miro.medium.com/v2/0*YVac_UDlgFkOIuak.gif)
+----------------------------
 
+👀 Olá, me chamo kleber Mascarenhas Cerqueira!
 
+🎓 Sou formado em Analise e Desenvolvimento de Sistemas.
 
+🛡️ Analista de Segurança Eletrónica.
+
+🌱 Estudante de Engenharia / Ciência de Dados.
 
 
 
