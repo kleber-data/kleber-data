@@ -30,8 +30,7 @@ width="100px">
 ----------------------------
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=tokyonight" width="53%" />
-  <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=tokyonight" width="47%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=tokyonight" width="48%" /> <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=tokyonight" width="48%" />
 </p>
 
 
