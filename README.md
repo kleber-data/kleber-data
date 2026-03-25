@@ -11,7 +11,7 @@
 
 🌱 Estudante de Engenharia / Ciência de Dados.
 
-📫 [Acesse o meu LinKedin](www.linkedin.com/in/kleber-cerqueira-b08a93191)
+📫 [Acesse o meu LinKedin](https://www.linkedin.com/in/kleber-cerqueira-b08a93191)
 
 ----------------------------
 
