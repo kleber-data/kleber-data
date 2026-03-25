@@ -31,6 +31,7 @@ width="100px">
 
 <P align="center">
 ![As linguagens que eu mais uso](https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=dracula)
+
 ![Kleber Mascarenhas Cerqueira GitHub stats](https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=tokyonight)
 </P>
 
