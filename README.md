@@ -29,10 +29,18 @@ width="100px">
 
 ----------------------------
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=dracula" width="48%" /> 
-  <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=tokyonight" width="48%" />
-</p>
+<div align="center">
+  <table border="0">
+    <tr>
+      <td width="50%" align="center">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=gruvbox" height="170px" />
+      </td>
+      <td width="50%" align="center">
+        <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=gruvbox" height="170px" />
+      </td>
+    </tr>
+  </table>
+</div>
 
 
 
