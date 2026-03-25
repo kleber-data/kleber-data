@@ -17,7 +17,7 @@
 
 ### Minhas Tecnologias
 
-![MySQL](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg)
+![MySQL](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-plain-wordmark.svg)
 
 
 
