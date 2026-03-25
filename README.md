@@ -11,6 +11,13 @@
 
 🌱 Estudante de Engenharia / Ciência de Dados.
 
+📫 [Acesse o meu LinKedin](www.linkedin.com/in/kleber-cerqueira-b08a93191)
+
+----------------------------
+
+### Minhas Tecnologias
+
+![MySQL](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg)
 
 
 
