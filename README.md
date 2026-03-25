@@ -19,6 +19,8 @@
 
 
 
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" width="100px">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg"
 width="100px">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-plain-wordmark.svg"
@@ -28,6 +30,8 @@ width="100px">
 
 
 ----------------------------
+
+![Kleber Mascarenhas Cerqueira GitHub stats](https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=tokyonight)
 
 
 
