@@ -30,12 +30,9 @@ width="100px">
 ----------------------------
 
 <p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=highcontrast" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=highcontrast" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=highcontrast&hide=markdown" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=highcontrast&include_all_commits=true" />
 </p>
-
-
-
 
 
 <!--
@@ -55,3 +52,4 @@ Here are some ideas to get you started:
 
 
 [def]: https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg
+
