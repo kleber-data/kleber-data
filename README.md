@@ -24,8 +24,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="45" height="45" alt="SQL" />
   <img src="https://cdn.pixabay.com/photo/2021/01/30/12/15/excel-5963669_1280.png" width="45" height="45" alt="Excel" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="45" height="45" alt="Python" />
-  <img src="https://www.vectorlogo.zone/logos/looker/looker-icon.svg" width="45" height="45" alt="Looker" />
-</p>
+ </p>
 
 ----------------------------
 
