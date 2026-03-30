@@ -29,7 +29,7 @@ width="100px">
 
 ----------------------------
 
-![kleber M.C GitHub stats](https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=dracula)
+![Stats](https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=dracula&count_private=true)
 
 
 
