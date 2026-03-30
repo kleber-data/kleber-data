@@ -17,15 +17,15 @@
 
 ### Minhas Tecnologias
 
-<P align="center">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg" width="100px">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqldeveloper/sqldeveloper-original.svg"
-width="100px">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"
-width="100px">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg"
-width="100px">
-</P>
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="45" height="45" alt="Git" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="45" height="45" alt="GitHub" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="45" height="45" alt="Linux" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="45" height="45" alt="SQL" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftoffice/microsoftoffice-original.svg" width="45" height="45" alt="Excel" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="45" height="45" alt="Python" />
+  <img src="https://www.vectorlogo.zone/logos/looker/looker-icon.svg" width="45" height="45" alt="Looker" />
+</p>
 
 ----------------------------
 
