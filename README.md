@@ -29,10 +29,8 @@ width="100px">
 
 ----------------------------
 
-<p align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&langs_count=7&theme=highcontrast&hide=markdown" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=highcontrast&include_all_commits=true" />
-</p>
+![kleber M.C GitHub stats](https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=dracula)
+
 
 
 <!--
