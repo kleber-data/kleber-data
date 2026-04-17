@@ -51,6 +51,7 @@ Acredito que a constância nos estudos é o que constrói um bom profissional. A
 
 Adoro ver o progresso acontecendo! Este gráfico reflete minha dedicação diária e os commits de cada novo desafio superado:
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=radical&include_all_commits=true&count_private=true" alt="Estatísticas do Kleber" />
-</div>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=radical&include_all_commits=true&count_private=true" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&theme=radical&hide_border=true&langs_count=6" width="41%" />
+</p>
