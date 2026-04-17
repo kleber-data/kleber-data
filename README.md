@@ -57,7 +57,7 @@ Acredito que a constância nos estudos é o que constrói um bom profissional. A
 
 ----------------------------
 
-### 🛠️ Toolbox (Habilidades e Ferramentas)
+### 🛠️  Habilidades e Ferramentas
 
 Abaixo, as tecnologias que utilizo para transformar dados em insights, organizadas pela minha trilha de aprendizado:
 
