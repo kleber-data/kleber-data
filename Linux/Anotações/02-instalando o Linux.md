@@ -23,5 +23,5 @@ Na criação do par de chaves e extremamente necessário que guarde-as em um loc
 Recurso do Windows 10 ou 11.
 Para usar esse recurso seu windows tem que ser Pro caso não seja, não tem como utiliza-lo
 Painel de controle -> ativar recursos do windows->
-Deve está ativado **Plataforma de Maquina Virtual**, **Plataforma de Hipevisor do Windows**, **Subsistema do Windows para Linux.
+Deve está ativado **Plataforma de Maquina Virtual**, **Plataforma de Hipevisor do Windows**, **Subsistema do Windows para Linux**.
 
