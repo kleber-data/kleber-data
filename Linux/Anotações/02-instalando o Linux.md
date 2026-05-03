@@ -1,5 +1,5 @@
 Versão utilizada do Linux será a UBUNTU na versão de servidor, porém já tenho instalado o Ubuntu no meu notebook.
-Irei acompanhar o curso utilizando o Linux Ubuntu nativo sem a necessidade de criar uma maquina virtual, pois so iria consumir tempo e recurso desnecessários.
+Irei acompanhar o curso utilizando o Linux Ubuntu nativo sem a necessidade de criar uma maquina virtual, pois só iria consumir tempo e recurso desnecessários.
 
 23/04/2026
 
@@ -15,4 +15,13 @@ Dica: por mais que o serviço da AWS no inicio da criação da conta seja gratui
 
 o Processo de criação da maquina virtual AWS é simples e bem direcionado pelo próprio site, peço que fique atento a todos os itens na criação da sua máquina, parar nao gerar cobrança.
 Na criação do par de chaves e extremamente necessário que guarde-as em um local de facil acesso para utilização quando necessário.
+
+03/05/2026
+
+**Utilizando o WSL**
+
+Recurso do Windows 10 ou 11.
+Para usar esse recurso seu windows tem que ser Pro caso não seja, não tem como utiliza-lo
+Painel de controle -> ativar recursos do windows->
+Deve está ativado **Plataforma de Maquina Virtual**, **Plataforma de Hipevisor do Windows**, **Subsistema do Windows para Linux.
 
