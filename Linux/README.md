@@ -5,5 +5,5 @@ Pasta dedicada às anotações, certificados e projetos do módulo de Linux.
 ### 📂 Links Rápidos
 
 * [Acessar Anotações](./Anotações)
-* [Acessar Certificados](./certificados)
+* [Acessar Certificados](./Certificados)
 * [Acessar Projetos](./Projetos)
