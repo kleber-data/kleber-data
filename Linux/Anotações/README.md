@@ -1,12 +1,16 @@
-# 📓 Notas de Estudo: Linux Fundamentos (DIO)
+## 📂 Notas de Estudo: Linux Fundamentos
 
-Este diretório é o meu "diário de comandos". Aqui vou registrar tudo o que aprender no curso da DIO, desde os comandos básicos até a configuração do meu ambiente de trabalho.
+Este diretório contém uma coleção de comandos, configurações e anotações relacionado ao curso de Linux Fundamentos (DIO).
 
-## 🛠️ O que estou registrando:
+## 📂 Estrutura da Pasta
 
-* **Comandos & Atalhos:** A prática diária no terminal (o que funciona e o que não funciona).
-* **Configurações:** Como estou deixando o Ubuntu 24.04 redondo no meu ThinkPad T495.
-* **Resolução de Problemas:** Erros que encontrei pelo caminho e como resolvi.
+* **[Anotações](./Anotacoes):** Diário de comandos, atalhos e resoluções de problemas.
+* **[Certificados](./Certificados):** Certificados de conclusão dos módulos.
+* **[Projetos](./Projetos):** Scripts e automações desenvolvidas.
 
-## 🎯 Objetivo
-Dominar o terminal para que ele seja a minha principal ferramenta na Ciência de Dados. Menos mouse, mais eficiência.
+## Objetivo
+
+Dominar o terminal Linux para aumentar a eficiência na Ciência de Dados, focando na configuração do Ubuntu 24.04 no ThinkPad T495.
+
+------------
+*Mantido por [kleber-data](https://github.com/kleber-data)*

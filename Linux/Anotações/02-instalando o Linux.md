@@ -25,3 +25,7 @@ Para usar esse recurso seu windows tem que ser Pro caso não seja, não tem como
 Painel de controle -> ativar recursos do windows->
 Deve está ativado **Plataforma de Maquina Virtual**, **Plataforma de Hipevisor do Windows**, **Subsistema do Windows para Linux**.
 
+
+
+
+
