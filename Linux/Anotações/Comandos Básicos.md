@@ -1,4 +1,5 @@
 
+
 - **ip a**: Abreviação de `ip address`. Lista todas as interfaces de rede (como Wi-Fi e Ethernet) e seus respectivos endereços IP. É o comando moderno que substituiu o antigo `ifconfig`.
     
 - **cd /**: Move você para o Diretório Raiz (o topo da hierarquia do sistema). No Linux, tudo começa no `/`.
@@ -34,6 +35,8 @@
 - **rm -rf**: Apaga uma pasta e tudo o que estiver dentro dela à força. É o comando "limpa tudo".
     
 - **touch**: Cria um arquivo vazio rapidamente. Muito usado para iniciar scripts ou notas. Ex: `touch aula04.md`.
+
+- **Ctrl + L**  = **clear**: o comando clear limpa o terminal ou pode-se usar Ctrl + L.
 
 ###  🚀 Checklist Diário: Início de Pomodoro
 
