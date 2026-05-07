@@ -1,4 +1,4 @@
-06/05/2026
+### 06/05/2026 - Introdução
 
 No curso de Linux Fundamentos o professor está usando uma VM para Linux Ubuntu, eu estou no Linux Ubuntu nativo.
 
@@ -14,7 +14,7 @@ Se atentar a letras maiúsculas e minúsculas pois o sistema operacional Linux �
 
 A navegação dentro de um sistema Linux é diferente do Windows. Antes de começar qualquer atividade via terminal é estritamente necessário você saber onde está, a melhor forma é usando o comando `pwd`, sempre se atentando na forma de digitação.
 
-Após isso você decide em qual pasta vai trabalhar usando o comando `cd` (change directory), isso pode te levar até a pasta raiz do sistema dependendo do caminho informado.
+Após isso você decide em qual pasta vai trabalhar usando o comando `cd` (change Directory), isso pode te levar até a pasta raiz do sistema dependendo do caminho informado.
 
 ```
 user@linux-machine:~$ pwd/home/user
@@ -39,3 +39,22 @@ Exemplo:
 - no começo confundi bastante os caminhos
 - usar `pwd` antes ajuda muito a não se perder
 - ninguém nasce sabendo, a prática diária eleva seu conhecimento
+  
+  ### 07/05/2026 – Dominando os Caminhos no Linux
+
+No Windows a gente trabalha clicando em pastas, mas no servidor Linux o caminho é indicado pelo terminal e a gente precisa ser o guia.
+
+- **A Raiz é o topo:** O comando `cd /` te joga lá no começo de tudo. No Linux, não tem "Disco C:", tudo nasce do `/`.
+    
+- **Localização é tudo:** Antes de qualquer coisa, uso o `pwd` para ter certeza de onde estou. O terminal não te deixa na mão, mas você tem que perguntar.
+    
+- **Caminho Absoluto vs Relativo:**
+    
+    - Se eu quero ir direto para os logs, mando um `cd /var/log` (caminho completo).
+        
+    - Se eu já estou dentro de `/var`, não preciso da barra, basta digitar `cd log` (caminho relativo).
+        
+- **A arte de voltar:** O comando `cd ..` é o nosso botão de "voltar" do navegador. E o comando `cd ../pasta` é o atalho mestre para sair de uma sala e já entrar na outra sem perder tempo.
+    
+
+No começo os caminhos confundem, mas usar o `pwd` toda hora ajuda a não se perder no sistema nativo.
