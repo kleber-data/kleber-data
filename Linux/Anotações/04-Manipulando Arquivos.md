@@ -61,7 +61,7 @@ No Windows a gente trabalha clicando em pastas, mas no servidor Linux o caminho 
 
 No começo os caminhos confundem, mas usar o `pwd` toda hora ajuda a não se perder no sistema nativo.
 
-# 08/04/2026: Dominando os Caminhos no Linux
+# 08/05/2026: Dominando os Caminhos no Linux
 
 ### Manutenção do Sistema
 
@@ -154,7 +154,7 @@ No Linux, o terminal usa sinais visuais para você não precisar adivinhar o que
 - **Cores no Ubuntu**: Por padrão, **Diretório fica em azul** e **Arquivo fica em branco/cinza**.
     
 
-### O Poder do Asterisco * (Filtro Coringa)
+### O Poder do Asterisco * 
 
 O asterisco é o comando "mostre tudo que comece com...".
 
@@ -186,3 +186,68 @@ O asterisco é o comando "mostre tudo que comece com...".
 - **TAB**: Sempre uso para confirmar o nome. Se o terminal não completa, é porque eu errei a letra (lembrar do case-sensitive).
     
 - **Poder do Root**: Só uso `sudo` quando tenho certeza. O root tem poder total e não faz perguntas.
+
+### 09/25/2026 - Territórios e Filtros
+
+### Onde eu mando e onde eu obedeço
+
+Testei criar arquivos com o comando `touch` em lugares diferentes e entendi a hierarquia do sistema:
+
+- **Raiz (`/`) e Configurações (`/etc`):** Tentei criar o `arquivo1.txt` e recebi **Permissão negada**. Essas áreas são do sistema (root) e só aceitam mudanças com `sudo`.
+    
+- **Minha Home (`~` ou `/home/kleber`):** É o meu território. Aqui o `touch` funcionou direto e criei vários arquivos para testes.
+    
+
+### Filtros Cirúrgicos com Coringas
+
+Aprendi a usar o `?` e o `[]` para não ter que listar 5 mil arquivos de uma vez.
+
+**1. O Ponto de Interrogação (`?`)**
+
+Serve para quando você sabe a posição exata de uma letra:
+
+- **ls ?rh*** ou **ls ?sh***: Busca arquivos que tenham qualquer letra na 1ª posição, mas que a 2ª e 3ª sejam fixas.
+    
+
+**2. O Uso de Colchetes (`[ ]`)**
+
+É a busca por conjunto ou intervalo:
+
+- **ls arquivo[1-3]***: Pega os arquivos que tenham o número 1, 2 ou 3 naquela posição.
+    
+- **ls arquivo[2,5].txt**: Busca especificamente as opções separadas por vírgula.
+    
+- **ls arquivo[^3-5]***: O acento circunflexo (`^`) serve para **excluir**. Aqui, ele listou tudo, menos o que tinha os números de 3 a 5.
+    
+
+### Identificação Visual 
+
+- **Azul com `/` no final:** É um diretório (pasta).
+    
+- **Branco/Cinza sem `/`:** É um arquivo.
+    
+- **Comportamento do `*`:** Se eu usar `ls p*` e houver uma pasta começando com "p", o Linux vai abrir essa pasta e listar o que tem dentro dela.
+    
+
+---
+
+### Tabela Geral de Comandos e Filtros
+
+|**Comando / Filtro**|**O que faz / Tradução**|
+|---|---|
+|**sudo**|"Execute como administrador" (pede senha).|
+|**touch**|Cria um arquivo vazio (funciona na Home).|
+|**[1-3]**|Busca um intervalo (do 1 ao 3).|
+|**[^3-5]**|Exclui o intervalo (tudo, menos do 3 ao 5).|
+|**?**|Ocupa o lugar de exatamente um caractere.|
+|**q** ou **Ctrl + C**|Para sair do visualizador ou cancelar um comando travado.|
+
+---
+
+### Minhas Observações 
+
+- **Localização é tudo:** Se deu "Permissão negada", primeiro olho onde estou com o `pwd`. Se não for minha pasta pessoal, preciso de `sudo`.
+    
+- **Filtros:** O segredo para não se perder em pastas como `/etc` é usar o `ls` com filtros (`*`, `?` ou `[]`). Isso limpa a visão e mostra só o que interessa.
+    
+- **TAB TAB:** É meu melhor amigo para ver o que tem na pasta antes de terminar de digitar o comando.
