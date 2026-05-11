@@ -251,3 +251,54 @@ Serve para quando você sabe a posição exata de uma letra:
 - **Filtros:** O segredo para não se perder em pastas como `/etc` é usar o `ls` com filtros (`*`, `?` ou `[]`). Isso limpa a visão e mostra só o que interessa.
     
 - **TAB TAB:** É meu melhor amigo para ver o que tem na pasta antes de terminar de digitar o comando.
+
+# 1/05/2026: Localizando Arquivos 
+
+### O Poder do Caminho 
+
+Uma coisa que ficou clara hoje: você não precisa estar "dentro" de uma pasta para saber o que tem nela. É como usar um binóculo. Se você está na **Raiz ( / )** e quer dar uma espiada na pasta `sys`, não precisa dar `cd`.
+
+- Basta usar: **ls /sys**
+    
+- Quer ir mais fundo? **ls /sys/kernel**
+    
+
+> **Regra de Ouro:** Nunca esqueça da `/` no começo. Ela indica que você está começando a busca lá do topo do sistema.
+
+### Filtrando direto na fonte
+
+Dá para usar os filtros que a gente aprendeu ontem mesmo estando longe da pasta. Se eu quero ver tudo que começa com **"p"** dentro da pasta kernel, eu mando:
+
+- **ls /sys/kernel/p*** Isso me economiza o tempo de entrar na pasta, rodar o comando e depois ter que sair. O `*` faz o trabalho sujo de aceitar qualquer continuação depois do "p".
+    
+
+### Quando você está "perdido": O comando Find
+
+Às vezes você sabe o nome do arquivo, mas não tem a mínima ideia de onde ele se enfiou. É aí que entra o **find**.
+
+1. **Busca Local:** Se eu estou na `/home` e quero achar algo que começa com "arq", eu uso:
+    
+    - **find -name arq***
+        
+    - O terminal vai me mostrar um `./` na frente do resultado. Isso é o Linux dizendo: "Achei aqui dentro de onde você está agora".
+        
+2. **Busca no Sistema Todo:** Se eu for para a raiz (`cd /`) e mandar um `find -name passwd`, ele vai revirar o computador inteiro.
+    
+
+### O "X" da questão: Permissão Negada no Find
+
+Uma coisa importante que notei: quando você faz uma busca na Raiz como usuário comum, o terminal começa a cuspir um monte de erros de "Permissão Negada".
+
+- **Por que?** Porque o `find` tenta entrar em pastas que só o **Superusuário (root)** tem a chave. Como você não está como root, o Linux barra a entrada do comando em diretórios críticos do sistema.
+    
+
+---
+
+### Minhas Observações 
+
+- **Atalho Mental:** Se eu sei o caminho, uso `ls`. Se eu não sei onde está, uso `find`.
+    
+- **./ significa "aqui":** Sempre que o `find` mostra o ponto e a barra, ele está me confirmando que o arquivo está por perto.
+    
+- **Sudo no Find:** Se eu precisar mesmo achar um arquivo de sistema e o `find` estiver sendo barrado, vou ter que apelar para o `sudo find`.
+

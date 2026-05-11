@@ -1,8 +1,8 @@
 
 
-### 📚 Lista de Comandos Consolidada (ThinkPad T495)
+### 📚 Lista de Comandos Consolidada 
 
-#### Navegação e Localização (Onde estou?)
+#### Navegação e Localização 
 
 - **pwd**: (Print Working Directory) Mostra o caminho completo de onde você está.
     
@@ -98,7 +98,7 @@
 
 ---
 
-### 💡 Atalhos de Teclado e Sinais Visuais
+###  Atalhos de Teclado e Sinais Visuais
 
 - **TAB (1x)**: Tenta completar o nome do comando ou arquivo.
     
@@ -109,3 +109,4 @@
 - **Nome com /**: No final do nome significa que é um **Diretório (Azul)**.
     
 - **Nome sem /**: Significa que é um **Arquivo (Branco/Cinza)**.
+
