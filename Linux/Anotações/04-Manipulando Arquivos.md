@@ -302,3 +302,62 @@ Uma coisa importante que notei: quando você faz uma busca na Raiz como usuário
     
 - **Sudo no Find:** Se eu precisar mesmo achar um arquivo de sistema e o `find` estiver sendo barrado, vou ter que apelar para o `sudo find`.
 
+
+###  12/05/2026: Criando Diretórios e Hierarquia
+
+### A Barreira da Raiz (`/`)
+
+Comecei tentando criar uma pasta `Documentos` lá na raiz do sistema (`mkdir /Documentos`).
+
+- **O que aconteceu:** O Linux me deu um sonoro **"Permissão negada"**.
+    
+- **A lição:** A raiz (`/`) é área do sistema. Usuário comum não cria pastas ali. É por isso que o Linux é seguro: ninguém bagunça a estrutura principal por acidente.
+    
+
+### O Meu Território (`~`)
+
+Voltei para a minha pasta pessoal (`cd ~` ou `/home/kleber`).
+
+- Tentei criar a pasta `Documentos`, mas o Linux avisou: **"Arquivo existe"**.
+    
+- **A lição:** O Linux não deixa criar dois itens com o mesmo nome no mesmo lugar. Como a pasta já existia (padrão do sistema), eu apenas entrei nela e comecei a trabalhar.
+    
+
+### Criando Pastas e Arquivos (A Prática)
+
+1. **Organização Interna:** Entrei em `Documentos` e usei o `touch` para criar os arquivos `texto1.txt` e `texto2.txt`. Funcionou liso porque ali eu tenho permissão total.
+    
+2. **Novas Estruturas:** Criei uma pasta chamada `Planilhas` do zero. Dentro dela, criei a subpasta `Financeiras`.
+    
+
+### Criando à Distância 
+
+Essa foi a parte mais legal da aula: eu estava lá na raiz (`cd /`) e, em vez de viajar pasta por pasta, dei um comando certeiro:
+
+- **Comando:** `mkdir /home/kleber/Planilhas/Escolares`
+    
+- **O resultado:** Mesmo estando "longe", a pasta foi criada exatamente onde eu mandei.
+    
+- **A lição:** Se você souber o caminho completo (caminho absoluto), você pode criar coisas em qualquer lugar que tenha permissão, sem precisar sair de onde está.
+    
+
+---
+
+### Tabela de Comandos da Aula
+
+|**Comando**|**O que eu fiz**|**Resultado**|
+|---|---|---|
+|**mkdir [nome]**|Tentei criar uma pasta.|Cria a pasta se ela não existir.|
+|**mkdir /caminho/pasta**|Criei uma pasta de longe.|Funciona se o caminho estiver correto.|
+|**cd ..**|Voltei um nível.|Saí de `Documentos` e voltei para `~`.|
+|**Ctrl + C**|O "pânico".|Usei para cancelar o que estava digitando e limpar a linha.|
+
+---
+
+### Minhas Observações 
+
+- **Organização é tudo:** Já comecei a separar `Documentos` de `Planilhas`. Isso vai me ajudar muito quando eu entrar na fase de SQL e Excel da trilha.
+    
+- **Caminho Absoluto economiza tempo:** No dia a dia, é muito mais rápido digitar o caminho completo do que ficar dando `cd` pra lá e pra cá.
+    
+- **Confirmação:** Sempre que eu crio algo (`mkdir` ou `touch`), eu dou um `ls` logo em seguida para ter certeza de que o arquivo nasceu mesmo.
