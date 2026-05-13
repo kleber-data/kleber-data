@@ -323,7 +323,7 @@ Voltei para a minha pasta pessoal (`cd ~` ou `/home/kleber`).
 - **A lição:** O Linux não deixa criar dois itens com o mesmo nome no mesmo lugar. Como a pasta já existia (padrão do sistema), eu apenas entrei nela e comecei a trabalhar.
     
 
-### Criando Pastas e Arquivos (A Prática)
+### Criando Pastas e Arquivos 
 
 1. **Organização Interna:** Entrei em `Documentos` e usei o `touch` para criar os arquivos `texto1.txt` e `texto2.txt`. Funcionou liso porque ali eu tenho permissão total.
     
@@ -361,3 +361,65 @@ Essa foi a parte mais legal da aula: eu estava lá na raiz (`cd /`) e, em vez de
 - **Caminho Absoluto economiza tempo:** No dia a dia, é muito mais rápido digitar o caminho completo do que ficar dando `cd` pra lá e pra cá.
     
 - **Confirmação:** Sempre que eu crio algo (`mkdir` ou `touch`), eu dou um `ls` logo em seguida para ter certeza de que o arquivo nasceu mesmo.
+
+
+# 13/05/2026: Excluindo e Organizando (O Poder do RM)
+
+**Nota Mental:** Comecei hoje a meta das 4 páginas por dia do livro _Linux Eficiente_ do Barrett. Vou usar o livro para ganhar velocidade ("eficiência") enquanto sigo a trilha da DIO.
+
+### 1. O Perigo do Espaço e o Truque das Aspas
+
+Hoje aprendi que o Linux é literal demais. Tentei criar a pasta `Meus Documentos` sem aspas e ele criou duas pastas separadas: `Meus` e `Documentos`.
+
+- **Como resolvi:** Usei aspas simples: `mkdir 'Meus Documentos'`.
+    
+- **A lição:** Para o Linux, um espaço vazio separa comandos. Se o nome do arquivo tem espaço, as aspas são obrigatórias.
+    
+
+### 2. Faxina no Sistema: `rmdir` vs `rm`
+
+Entendi a diferença entre apagar uma "caixa" e apagar o "conteúdo":
+
+- **`rmdir`:** Só funciona se a pasta estiver **vazia**. É um comando de segurança. Tentei apagar a pasta `Planilhas` com coisas dentro e ele me deu um erro — o que é bom para não fazer besteira.
+    
+- **`rm`:** Usei para apagar os arquivos `.txt`. **Atenção total aqui:** No Linux não tem lixeira. Deu `rm`, o arquivo some para sempre.
+    
+
+### 3. Produtividade com Curingas (`*`)
+
+Em vez de apagar um por um, usei o `rm arquivo*`.
+
+- O asterisco funciona como um "completa pra mim". Ele pegou tudo que começava com "arquivo" e limpou de uma vez. Economizei tempo e teclas.
+    
+
+### 4. O Comando "Pau para toda obra": `rm -rf`
+
+Este é o comando mais forte que usei até agora.
+
+- O `-r` (recursivo) entra nas pastas e subpastas.
+    
+- O `-f` (force) apaga sem perguntar nada.
+    
+- **Teste real:** Criei uma estrutura complexa dentro de `Planilhas` (`adm`, `vend`, arquivos txt) e apaguei tudo de uma vez com `rm -rf Planilhas/`. É rápido, mas dá um frio na barriga porque não tem volta.
+    
+
+---
+
+### Comandos que usei hoje:
+
+- `mkdir 'Nome Com Espaço'`: Criar pastas com nomes compostos.
+    
+- `rmdir`: Apagar pastas vazias.
+    
+- `rm`: Apagar arquivos.
+    
+- `rm -rf`: Apagar pastas com conteúdo (limpeza total).
+    
+- `rm arquivo*`: Apagar vários arquivos por padrão de nome.
+    
+
+### Minhas Observações :
+
+- **Sempre dar `ls` depois de apagar:** Virou meu tique nervoso. Apago e dou `ls` para confirmar se o "inimigo" sumiu mesmo.
+    
+- **Caminho Absoluto vs Relativo:** Usei o `cd ~` para garantir que estava na minha home antes de começar a bagunça.
