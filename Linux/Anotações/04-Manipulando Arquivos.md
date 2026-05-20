@@ -505,3 +505,148 @@ help cd
 - **No Terminal:** `man nome_do_comando` (Abre o manual completo. Pressione `q` para sair).
     
 - **Na Web:** [Site Oficial de Ajuda do Ubuntu](https://help.ubuntu.com/)
+
+### 20/05/2026 - Executando Tarefas Administrativas como Root
+
+No Linux, a estrutura de arquivos raiz (`/`) é protegida. Usuários comuns não possuem permissão para criar, modificar ou deletar arquivos e diretórios diretamente na raiz do sistema sem privilégios administrativos.
+
+Para listar todos os grupos do sistema e verificar quais usuários possuem privilégios de administrador (estão no grupo `sudo` ou `adm`):
+
+Bash
+
+```
+cd /
+cat /etc/group
+```
+
+### Exemplo de saídas de grupos administrativos:
+
+Plaintext
+
+```
+adm:x:4:syslog,usuario
+sudo:x:27:usuario
+```
+
+### Teste de Permissões na Raiz (`/`)
+
+Ao tentar criar um diretório na raiz sem elevação de privilégios, o sistema nega a permissão:
+
+Bash
+
+```
+usuario@maquina:/$ mkdir Aula
+mkdir: não foi possível criar o diretório ‘Aula’: Permissão negada
+```
+
+**Correção:** É necessário utilizar o comando `sudo` antes da ação.
+
+Bash
+
+```
+usuario@maquina:/$ sudo mkdir Aula
+```
+
+### Manipulação de Arquivos dentro de Diretórios Protegidos
+
+Ao entrar em um diretório criado pelo `root` e tentar gerar um arquivo com o comando `touch`:
+
+Bash
+
+```
+usuario@maquina:/Aula$ touch texto1.txt
+touch: não foi possível tocar 'texto1.txt': Permissão negada
+```
+
+**Correção:** Utilizar o `sudo` para criar o arquivo.
+
+Bash
+
+```
+usuario@maquina:/Aula$ sudo touch texto1.txt
+```
+
+Verificando as permissões do arquivo criado (`ls -l`):
+
+Plaintext
+
+```
+total 0
+-rw-r--r-- 1 root root 0 mai 20 18:42 texto1.txt
+```
+
+_O arquivo pertence ao usuário root e ao grupo root._
+
+Ao tentar remover o arquivo ou a pasta como usuário comum, o sistema impede a exclusão:
+
+Bash
+
+```
+usuario@maquina:/Aula$ rm texto1.txt
+rm: remover arquivo comum vazio 'texto1.txt' protegido contra escrita? s
+rm: não foi possível remover 'texto1.txt': Permissão negada
+
+usuario@maquina:/$ rmdir Aula
+rmdir: falhou em remover 'Aula': Permissão negada
+```
+
+**Correção:** Executar as remoções utilizando privilégios administrativos:
+
+Bash
+
+```
+usuario@maquina:/Aula$ sudo rm texto1.txt
+usuario@maquina:/$ sudo rmdir Aula
+```
+
+---
+
+## Logando como Usuário Root
+
+Em cenários específicos (como a configuração complexa de um servidor web), colocar o comando `sudo` e digitar a senha repetidamente pode ser contraproducente. Nesses casos, pode-se alternar diretamente para o superusuário (`root`).
+
+No Ubuntu, por padrão, o usuário `root` vem sem uma senha definida para login direto. É necessário definir uma senha primeiro:
+
+Bash
+
+```
+usuario@maquina:~$ sudo passwd root
+[sudo] senha para usuario: 
+Nova senha: 
+Redigite a nova senha: 
+passwd: senha atualizada com sucesso
+```
+
+Para mudar o terminal para o contexto de superusuário, utiliza-se o comando **`su`** (substitute user):
+
+Bash
+
+```
+usuario@maquina:~$ su
+Senha: 
+root@maquina:/home/usuario# 
+```
+
+_Note que o prompt muda o caractere final de `$` (usuário comum) para `#` (root)._
+
+Estando como `root`, todas as tarefas administrativas são executadas sem a necessidade de prefixar com `sudo`:
+
+Bash
+
+```
+root@maquina:/# mkdir Teste
+root@maquina:/# ls -l
+root@maquina:/# rmdir Teste
+```
+
+⚠️ **Boas Práticas de Segurança:** Após concluir as tarefas administrativas necessárias como superusuário, retorne imediatamente para o usuário convencional para evitar modificações acidentais no sistema.
+
+Para retornar ao usuário padrão:
+
+Bash
+
+```
+su nome_do_usuario
+```
+
+_(Ou simplesmente digite `exit` ou pressione `Ctrl + D`)_

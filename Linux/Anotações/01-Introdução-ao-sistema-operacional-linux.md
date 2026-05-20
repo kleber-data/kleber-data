@@ -2,7 +2,7 @@
 
 	Aula 01
 
-**O que é um sistema operacional ? **
+**O que é um sistema operacional ?**
 
 O sistema operacional é um software, ou conjunto de softwares, que tem a função de administrar e gerenciar os recursos de um sistema. Esses recursos são: componentes de hardware, sistemas, programas de terceiros, etc.
 
