@@ -650,3 +650,118 @@ su nome_do_usuario
 ```
 
 _(Ou simplesmente digite `exit` ou pressione `Ctrl + D`)_
+
+
+### 21/05/2026 Liberando acesso remoto do usuário root
+```
+# Resumo: Configuração de Acesso Remoto para o Root
+
+Nas imagens oficiais do Ubuntu (especialmente em ambientes de nuvem como a AWS), além de liberar o `PermitRootLogin yes` no arquivo de configuração do SSH, são necessários ajustes adicionais nas chaves de autenticação e no bloqueio de segurança nativo da nuvem.
+
+## Entendendo o Arquivo de Configuração
+O arquivo responsável por ditar as regras do acesso remoto via SSH fica localizado em `/etc/ssh/sshd_config`. 
+
+* Para visualizar o conteúdo do arquivo, utiliza-se o comando:
+  ```bash
+  cat /etc/ssh/sshd_config
+```
+
+- Por padrão, a linha que gerencia o acesso do root vem comentada e configurada assim:
+    
+    Plaintext
+    
+    ```
+    #PermitRootLogin prohibit-password
+    ```
+    
+    _(O símbolo `#` significa que a linha está comentada/desativada e o `prohibit-password` impede o login direto usando senha)._
+    
+
+## Editando a Configuração
+
+Para aplicar as alterações, é necessário usar um editor de texto no terminal. Na aula, foi utilizado o **nano**.
+
+- Comando para abrir o arquivo em modo de edição:
+    
+    Bash
+    
+    ```
+    sudo nano /etc/ssh/sshd_config
+    ```
+    
+- **Alteração realizada:** Foi removido o `#` (descomentando a linha) e o texto foi alterado para `yes`. O resultado final deve ser exatamente:
+    
+    Plaintext
+    
+    ```
+    PermitRootLogin yes
+    ```
+    
+
+## Preparação das Chaves SSH para o Root
+
+Mesmo liberando o acesso no serviço, o usuário `root` precisa ter as chaves públicas autorizadas para permitir a conexão via par de chaves (`.pem`).
+
+- **Copiando as chaves do usuário padrão para o root:** Como a chave privada do administrador já estava configurada no usuário padrão, faz-se a cópia desse arquivo para o diretório do root:
+    
+    Bash
+    
+    ```
+    sudo cp /home/usuario_padrao/.ssh/authorized_keys /root/.ssh/authorized_keys
+    ```
+    
+- **Editando e limpando as chaves (Ajuste AWS):** Ao abrir o arquivo com o nano:
+    
+    Bash
+    
+    ```
+    sudo nano /root/.ssh/authorized_keys
+    ```
+    
+    > [!IMPORTANT] Nota de Segurança (AWS) As instâncias AWS trazem um bloqueio no início desse arquivo (geralmente um comando como `no-port-forwarding,no-agent-forwarding... Please login as the user...`). **É necessário apagar todo esse texto de aviso inicial**, deixando apenas o código puro da chave pública (que começa com `ssh-rsa` ou `ssh-ed25519`). Se não apagar, o servidor derruba a conexão.
+    
+- **Ajustando as Permissões do Arquivo:** O SSH exige que o arquivo de chaves tenha permissões restritas para segurança. Define-se a permissão correta (leitura e escrita apenas para o dono) com o comando:
+    
+    Bash
+    
+    ```
+    sudo chmod 600 /root/.ssh/authorized_keys
+    ```
+    
+
+## Passo a Passo do Fluxo de Trabalho
+
+### No Servidor (Máquina Virtual):
+
+Bash
+
+```
+# 1. Abra o arquivo de configuração do SSH
+sudo nano /etc/ssh/sshd_config
+# [Altere para 'PermitRootLogin yes', salve e saia]
+
+# 2. Reinicie o serviço SSH usando privilégios elevados (sudo) para aplicar a mudança
+sudo systemctl restart sshd
+
+# 3. Copie a chave pública autorizada do usuário comum para o perfil do root
+sudo cp /home/usuario_padrao/.ssh/authorized_keys /root/.ssh/authorized_keys
+
+# 4. Abra o arquivo de chaves do root e remova a trava da AWS que bloqueia o root
+sudo nano /root/.ssh/authorized_keys
+# [Apague o texto de aviso inicial da AWS, deixando apenas a chave, salve e saia]
+
+# 5. Garanta que apenas o root tenha permissão de ler/escrever nesse arquivo
+sudo chmod 600 /root/.ssh/authorized_keys
+```
+
+### Na Máquina Local (Terminal):
+
+Bash
+
+```
+# 1. Navegue até a pasta onde a sua chave privada (.pem) está salva
+cd ~/Downloads/
+
+# 2. Conecte-se diretamente como root utilizando a chave privada
+ssh -i SuaChave.pem root@IP_DA_SUA_VM
+```
