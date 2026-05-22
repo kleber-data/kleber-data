@@ -765,3 +765,125 @@ cd ~/Downloads/
 # 2. Conecte-se diretamente como root utilizando a chave privada
 ssh -i SuaChave.pem root@IP_DA_SUA_VM
 ```
+
+
+
+### 22/05/2026 - Trabalhando com arquivos de texto
+
+```
+No Linux, a premissa fundamental é que **toda a configuração do sistema é feita através de arquivos do tipo texto**. Para interagir com o ecossistema e evoluir no desenvolvimento do SaaS, o domínio da navegação entre usuários e edição de arquivos é indispensável.
+
+---
+
+## 👥 1. Engenharia de Usuários e Gestão de Sessões
+
+Após optar pelo modelo de conexão mais seguro (logar com usuário padrão via SSH e alternar internamente), o comportamento do terminal ao trocar de identidades exige atenção à localização dos diretórios.
+
+### 🔄 A Diferença Sutil na Troca de Usuários
+* **Troca Simples (`su usuario`):** Altera a identidade do usuário, mas mantém o terminal preso no diretório de trabalho anterior.
+  * *Exemplo prático:* Ao sair do `root` para o usuário comum usando apenas `su usuario`, o terminal continua na pasta `/root` (onde o usuário comum não tem permissão de leitura/escrita). Para corrigir, usa-se o comando `cd ~` para voltar à Home pessoal.
+* **Troca com Ambiente Limpo (`su - usuario`):** Altera o usuário e muda automaticamente para a pasta pessoal dele (`/home/usuario`), aplicando o login do zero de forma organizada.
+
+---
+
+## 🔑 2. Passo a Passo: Definindo a Senha do Root
+
+Por padrão, imagens de nuvem vêm com o usuário administrador (`root`) bloqueado para senhas. Para definir uma senha interna:
+
+1. Vire superusuário na sessão atual:
+   ```bash
+   sudo su -
+```
+
+2. Execute o utilitário de alteração de senha:
+    
+    Bash
+    
+    ```
+    passwd root
+    ```
+    
+3. Digite e confirme a nova senha.
+    
+
+> ⚠️ **Nota de Segurança:** Quando você digita senhas no terminal do Linux, os caracteres não aparecem na tela (não mostra asteriscos `***` nem pontinhos). Basta digitar às cegas e apertar Enter.
+
+### 🔄 Como usar a senha criada?
+
+Em qualquer ponto do sistema, para virar root sem o comando `sudo`, basta usar:
+
+Bash
+
+```
+su -
+```
+
+O sistema solicitará a _Password_ criada. O prompt mudará de `$` (usuário comum) para `#` (root).
+
+> 🚨 **Importante (Bloqueio AWS):** A criação desta senha funciona **apenas internamente**. O acesso SSH externo via internet direto para o root continua bloqueado no arquivo `/etc/ssh/sshd_config`, mantendo a integridade da máquina virtual contra ataques externos.
+
+## 📁 3. Manipulação do Sistema de Arquivos
+
+Abaixo está o fluxo de comandos executados na raiz do sistema para criação de diretórios e manipulação de arquivos de texto:
+
+Bash
+
+```
+# Navegar até o diretório raiz do Linux
+cd /
+
+# Listar os diretórios do sistema (raiz) detalhadamente
+ls -l
+
+# Criar uma nova pasta/diretório (requer privilégios de root)
+mkdir Textos
+
+# Acessar a pasta criada
+cd Textos/
+```
+
+## 📝 4. Editores de Texto e Visualizadores
+
+Para editar arquivos de configuração ou códigos no terminal, utilizam-se editores em modo texto.
+
+### ⌨️ O Editor `vi` (ou `vim`)
+
+O `vi` funciona baseado em modos. Para interagir com ele, use os comandos abaixo sempre pressionando a tecla `Esc` antes:
+
+- **`:q!`** -> Sair **SEM** salvar as alterações (Botão de emergência se algo for digitado errado).
+    
+- **`:wq`** -> Salvar as alterações (_write_) e sair (_quit_).
+    
+- **`:q`** -> Sair direto (Funciona apenas se o arquivo não tiver sido modificado).
+    
+
+> 💡 **Nota de Curso:** O `nano` é um editor de texto muito mais amigável para o fluxo diário e será o padrão adotado durante o desenvolvimento do projeto.
+
+### 👁️ Visualização Rápida com o `cat`
+
+O comando `cat` permite ler todo o conteúdo de um arquivo de texto diretamente no terminal, sem a necessidade de abri-lo em um editor. É um comando seguro de modo apenas leitura.
+
+- **Visualização padrão:**
+    
+    Bash
+    
+    ```
+    cat leia-me.txt
+    ```
+    
+- **Visualização com linhas numeradas:** (Excelente para revisar linhas de código Python ou logs de erro de bancos de dados SQL):
+    
+    Bash
+    
+    ```
+    cat -n leia-me.txt
+    ```
+    
+
+_Resultado no terminal:_
+
+Plaintext
+
+```
+     1	Esse é o meu texto!!!
+```
