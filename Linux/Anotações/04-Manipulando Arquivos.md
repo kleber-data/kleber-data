@@ -887,3 +887,213 @@ Plaintext
 ```
      1	Esse é o meu texto!!!
 ```
+
+
+
+### 27/05/2026 # Histórico de Comandos (Linux) — Guia de Referência
+
+## 1. Comandos Básicos de Visualização
+
+• `history` — Lista todos os comandos usados pelo usuário atual.
+
+  
+
+• `history 30` — Lista apenas os últimos 30 comandos.
+
+  
+
+• `history 3` — Lista apenas os últimos 3 comandos.
+
+  
+
+• `su - nome_usuario` — Altera para outro usuário carregando o perfil completo dele (permitindo visualizar o histórico correto após o login).
+
+  
+
+---
+
+  
+
+## 2. Executando Comandos do Histórico (Atalhos)
+
+[!TIP] O uso de `!` permite repetir comandos rapidamente sem precisar digitá-los novamente.
+
+  
+
+• `!!` — Executa o último comando executado.
+
+  
+
+• `sudo !!` — Executa o último comando com privilégios de administrador.
+
+  
+
+• `!42` — Executa o comando de número 42 da lista do histórico.
+
+  
+
+• `!ls` — Executa o comando mais recente que começa com "ls".
+
+  
+
+• `!?dat?` — Busca e executa o comando mais recente que contenha a palavra "dat".
+
+  
+
+---
+
+  
+
+## 3. Filtrando o Histórico com Pipes (`|`)
+
+Para buscar comandos específicos dentro do histórico, utilize o comando `grep`:
+
+  
+
+```
+
+  
+
+# Filtra o histórico mostrando apenas linhas que contenham "ls"
+
+  
+
+history | grep "ls"
+
+  
+
+# Filtra o histórico por uma palavra específica (ex: "Planilhas")
+
+  
+
+history | grep "Planilhas"
+
+  
+
+```
+
+  
+
+---
+
+  
+
+## 4. Formatando com Data e Hora
+
+Para exibir o momento exato em que cada comando foi executado, utilize a variável `HISTTIMEFORMAT`.
+
+  
+
+```
+
+  
+
+export HISTTIMEFORMAT="%c "
+
+  
+
+```
+
+  
+
+Códigos de Formatação Disponíveis:
+
+  
+
+---
+
+  
+
+## 5. Ativando, Desativando e Limpando o Histórico
+
+• `set +o history` — Desativa temporariamente a gravação de comandos no histórico.
+
+  
+
+• `set -o history` — Reativa a gravação de comandos no histórico.
+
+  
+
+• `history -d 42` — Exclui um comando específico do histórico (substitua pelo número da linha).
+
+  
+
+• `history -c` — Limpa todo o histórico da memória da sessão atual.
+
+  
+
+• `history -w` — Salva o histórico da memória diretamente no arquivo físico imediatamente.
+
+  
+
+---
+
+  
+
+## 6. Configuração Permanente (`~/.bashrc`)
+
+Por padrão, as alterações feitas com `export` duram apenas enquanto o terminal atual estiver aberto. Para torná-las permanentes, modifique o arquivo de configuração do usuário:
+
+  
+
+```
+
+  
+
+# 1. Comandos úteis para inspecionar o ambiente
+
+  
+
+ls -a              # Lista arquivos ocultos (como o .bashrc)
+
+  
+
+cat ~/.bashrc      # Visualiza o conteúdo atual do arquivo
+
+  
+
+nano ~/.bashrc     # Abre o arquivo para edição manual
+
+  
+
+```
+
+  
+
+Variáveis importantes dentro do `.bashrc`:
+
+  
+
+```
+
+  
+
+HISTSIZE=1000        # Quantidade de comandos mantidos na memória RAM
+
+  
+
+HISTFILESIZE=2000    # Quantidade de comandos salvos no arquivo físico (.bash_history)
+
+  
+
+```
+
+  
+
+Tornando a data/hora do histórico permanente:
+
+  
+
+Execute os comandos abaixo no terminal para injetar a configuração no fim do arquivo e recarregá-lo:
+
+  
+
+```
+
+  
+
+echo 'export HISTTIMEFORMAT="%F %T "' >> ~/.bashrc
+
+  
+
+source ~/.bashrc
