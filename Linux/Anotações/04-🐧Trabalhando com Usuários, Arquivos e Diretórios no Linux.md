@@ -1,4 +1,3 @@
-# 🐧 Linux Fundamentals — Anotações de Estudo
 
 **Autor:** Kleber  
 **Curso:** Linux Fundamentals — DIO  
@@ -114,12 +113,12 @@ ls -l ss*    # lista detalhes de tudo que começa com "ss"
 
 ### Tabela de Atalhos de Navegação
 
-| Comando | O que faz |
-|---|---|
-| `TAB TAB` | Autocomplete — mostra sugestões |
-| `Enter` | No less/more, desce linha por linha |
-| `Espaço` | No less/more, pula uma página |
-| `q` | Sai do modo de visualização |
+| Comando    | O que faz                                  |
+| ---------- | ------------------------------------------ |
+| `TAB TAB`  | Autocomplete — mostra sugestões            |
+| `Enter`    | No less/more, desce linha por linha        |
+| `Espaço`   | No less/more, pula uma página              |
+| `q`        | Sai do modo de visualização                |
 | `Ctrl + C` | Cancela qualquer comando (botão de pânico) |
 
 ---
@@ -580,7 +579,6 @@ source ~/.bashrc
 ```
 
 ---
-
 ## 02/06/2026 — Criando, Excluindo e Editando Usuários
 
 **Ambiente:** Servidor EC2 na AWS (nuvem) acessado via SSH pelo terminal local (ThinkPad T495)
@@ -729,43 +727,140 @@ su: Authentication token manipulation error
 
 **Regra que fica:** sempre que precisar forçar troca de senha de outro usuário, estar como root. Usuário comum não tem esse poder.
 
+
+
+## 04/06/2026 - Adicionando Usuários a Grupos e Criando Novos Grupos````
+
+**Ambiente:** Servidor EC2 na AWS acessado via SSH
+
 ---
 
-## 📌 Tabela Geral de Comandos
+## 📌 O que foi feito
+Adição de usuários a grupos existentes, criação de grupos personalizados e gerenciamento de permissões por grupo.
 
-| Comando | O que faz |
+---
+
+## ⚙️ Comandos Aprendidos
+
+### Criar usuário já adicionando a um grupo
+```bash
+useradd nome -c "Nome Completo" -m -s /bin/bash -p $(openssl passwd -6 senha123) -G NOME_DO_GRUPO
+````
+
+> [!NOTE]
+> 
+> `-G` define o grupo secundário do usuário no momento da criação.
+
+### Adicionar usuário a grupo depois da criação
+
+Bash
+
+```
+usermod -G NOME_DO_GRUPO nome_usuario
+
+# Adicionar a múltiplos grupos de uma vez
+usermod -G adm,sudo,GRP_VEN mariana
+```
+
+> [!WARNING]
+> 
+> O `-G` substitui os grupos secundários. Se quiser manter os grupos anteriores e só adicionar um novo, use `-aG`.
+
+### Dar superpoderes a um usuário (sudo + adm)
+
+Bash
+
+```
+usermod -G adm,sudo nome_usuario
+```
+
+### Criar grupos
+
+Bash
+
+```
+groupadd GRP_ADM
+groupadd GRP_VEN
+groupadd GRP_TESTE
+```
+
+### Excluir grupos
+
+Bash
+
+```
+groupdel GRP_TESTE
+```
+
+> [!IMPORTANT]
+> 
+> O Linux é _case-sensitive_: `GRP_ven` e `GRP_VEN` são grupos diferentes. Mantenha um padrão — no servidor foi usado MAIÚSCULAS.
+
+### Renomear usuário
+
+Bash
+
+```
+usermod -l novo_nome Nome_Antigo
+```
+
+> A ordem é: primeiro o novo nome, depois o nome atual.
+
+### Remover usuário de um grupo
+
+Bash
+
+```
+gpasswd -d nome_usuario nome_grupo
+```
+
+### Verificar grupos do sistema
+
+Bash
+
+```
+cat /etc/group
+```
+
+## 📋 Usuários e Grupos Criados no Servidor
+
+|**Usuário**|**Grupo**|
 |---|---|
-| `pwd` | Mostra o diretório atual |
-| `cd /` | Vai para a raiz do sistema |
-| `cd ~` | Vai para a pasta pessoal |
-| `cd ..` | Volta um nível |
-| `ls` | Lista arquivos e pastas |
-| `ls -l` | Lista com detalhes |
-| `ls -a` | Lista incluindo arquivos ocultos |
-| `ls -lh` | Lista com tamanho legível |
-| `ls p*` | Lista tudo que começa com "p" |
-| `mkdir nome` | Cria uma pasta |
-| `touch arquivo.txt` | Cria um arquivo vazio |
-| `rm arquivo.txt` | Apaga um arquivo |
-| `rm -rf pasta/` | Apaga pasta com todo o conteúdo |
-| `rmdir pasta` | Apaga pasta vazia |
-| `cat arquivo.txt` | Lê o conteúdo do arquivo |
-| `cat -n arquivo.txt` | Lê com linhas numeradas |
-| `find -name nome` | Busca arquivo pelo nome |
-| `man comando` | Abre o manual do comando |
-| `history` | Lista comandos usados |
-| `sudo` | Executa como administrador |
-| `su usuario` | Troca de usuário |
-| `su - usuario` | Troca de usuário com ambiente limpo |
-| `chmod +x arquivo` | Dá permissão de execução |
-| `Ctrl + C` | Cancela qualquer comando |
-| `q` | Sai do visualizador less/more |
+|rodrigo|GRP_ADM|
+|debora|GRP_ADM|
+|daniel|GRP_VEN|
+|maisa|GRP_VEN|
+|joao|GRP_VEN|
+|mariana|GRP_VEN + adm + sudo|
+
+## 🔍 Observação Pessoal
+
+O comando `useradd` com `-crypt` não roda no Ubuntu 24. A versão correta é `-6` (SHA-512):
+
+Bash
+
+```
+# ❌ Não funciona no Ubuntu 24
+useradd nome -p $(openssl passwd -crypt senha123)
+
+# ✅ Correto
+useradd nome -p $(openssl passwd -6 senha123)
+```
+
+## 📌 Resumo do Pomodoro
+
+- **O que foi estudado hoje:** Criação de grupos e adição de usuários a grupos num servidor Linux real na AWS.
+    
+- **Por que isso importa na prática:** Separar usuários em grupos é como definir quem acessa o quê no servidor — base do controle de acesso do SaaS.
+    
+- **1 exemplo do mundo real:** Equipe de vendas no grupo `GRP_VEN` só acessa relatórios de vendas; equipe de ADM no `GRP_ADM` acessa configurações do sistema.
+
 
 ---
 
 *Autor: Kleber*  
 *Curso: Linux Fundamentals — DIO*  
-*Última atualização: 02/06/2026*
+*Última atualização: 04/06/2026*
 
 
 

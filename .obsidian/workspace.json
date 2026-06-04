@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Anotações/03- Acesso Remoto a Máquinas Linux.md",
+                "file": "Linux/Anotações/04-🐧Trabalhando com Usuários, Arquivos e Diretórios no Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "03- Acesso Remoto a Máquinas Linux"
+              "title": "04-🐧Trabalhando com Usuários, Arquivos e Diretórios no Linux"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 237.50260543823242
   },
   "right": {
     "id": "edeb41c6cd71f20e",
@@ -186,12 +186,13 @@
   "active": "04189b7f1ad5f3d2",
   "lastOpenFiles": [
     "Linux/Anotações/02-instalando o Linux.md",
-    "Linux/Anotações/01-Introdução-ao-sistema-operacional-linux.md",
+    "Linux/Anotações/04-🐧Trabalhando com Usuários, Arquivos e Diretórios no Linux.md",
     "Linux/Anotações/03- Acesso Remoto a Máquinas Linux.md",
-    "Linux/Anotações/04-Trabalhando com Usuários, Arquivos e Diretórios no Linux.md",
+    "Linux/Anotações/01-Introdução-ao-sistema-operacional-linux.md",
+    "Linux/Anotações/05-Trabalhando com Usuários.md",
+    "Linux/Anotações/Comandos Básicos.md",
     "Linux/Certificados/06-Manipulando-Arquivos.pdf",
     "Linux/Certificados/Não confirmado 509870.crdownload",
-    "Linux/Anotações/Comandos Básicos.md",
     "Linux/Certificados/README.md",
     "Linux/Certificados/05-Introducao-Linux.pdf",
     "Linux/Certificados/05-Introducao-Linux.webp",
