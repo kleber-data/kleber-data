@@ -1,29 +1,54 @@
-Versão utilizada do Linux será a UBUNTU na versão de servidor, porém já tenho instalado o Ubuntu no meu notebook.
-Irei acompanhar o curso utilizando o Linux Ubuntu nativo sem a necessidade de criar uma maquina virtual, pois só iria consumir tempo e recurso desnecessários.
+# 🐧 02 — Instalando o Linux
 
-23/04/2026
+**Autor:** Kleber  
+**Curso:** Linux Fundamentals — DIO  
+**Tags:** #linux #dio #aws #ec2 #wsl #instalação
 
-**Criando uma conta AWS**
-a segui link do site oficial da empresa AWS.
-[AWS](aws.amazon.com).
+---
 
-É possível criar uma nova conta na AWS e ter acesso a alguns serviços pago gratuitamente por um determinado período de tempo, mais e necessário adicionar pelo menos 1 cartão de credito.
+## Decisão de Ambiente
 
-Dica: por mais que o serviço da AWS no inicio da criação da conta seja gratuito, criou uma maquina virtual e tem a ciência de que não ira mais utiliza-la você deve exclui-la imediatamente para evitar cobranças.
+A versão utilizada no curso é o **Ubuntu na versão de servidor**, porém já tenho instalado o Ubuntu no notebook.
 
-**Criando uma máquina virtual em nuvem (EC2)**
+Irei acompanhar o curso utilizando o **Linux Ubuntu nativo**, sem a necessidade de criar uma máquina virtual, pois só iria consumir tempo e recurso desnecessários.
 
-o Processo de criação da maquina virtual AWS é simples e bem direcionado pelo próprio site, peço que fique atento a todos os itens na criação da sua máquina, parar nao gerar cobrança.
-Na criação do par de chaves e extremamente necessário que guarde-as em um local de facil acesso para utilização quando necessário.
+---
 
-03/05/2026
+## 23/04/2026 — Criando uma Conta AWS
 
-**Utilizando o WSL**
+Acessar o site oficial: [aws.amazon.com](https://aws.amazon.com)
 
-Recurso do Windows 10 ou 11.
-Para usar esse recurso seu windows tem que ser Pro caso não seja, não tem como utiliza-lo
-Painel de controle -> ativar recursos do windows->
-Deve está ativado **Plataforma de Maquina Virtual**, **Plataforma de Hipevisor do Windows**, **Subsistema do Windows para Linux**.
+É possível criar uma nova conta na AWS e ter acesso a alguns serviços pagos gratuitamente por um determinado período de tempo, porém é necessário adicionar pelo menos 1 cartão de crédito.
+
+> ⚠️ **Dica importante:** Por mais que o serviço da AWS no início seja gratuito, se criar uma máquina virtual e não for mais utilizá-la, **exclua imediatamente** para evitar cobranças.
+
+---
+
+### Criando uma Máquina Virtual em Nuvem (EC2)
+
+O processo de criação da máquina virtual na AWS é simples e bem direcionado pelo próprio site. Fique atento a todos os itens na criação da máquina para não gerar cobrança.
+
+> 🔑 **Importante:** Na criação do par de chaves, é extremamente necessário guardá-las em um local de fácil acesso para utilização quando necessário.
+
+---
+
+## 03/05/2026 — Utilizando o WSL
+
+Recurso disponível no Windows 10 ou 11 **Pro**.
+
+**Caminho de ativação:**  
+`Painel de Controle → Ativar Recursos do Windows`
+
+Devem estar ativados:
+- ✅ Plataforma de Máquina Virtual
+- ✅ Plataforma de Hipervisor do Windows
+- ✅ Subsistema do Windows para Linux
+
+> ⚠️ Para usar esse recurso, o Windows precisa ser na versão **Pro**. Caso não seja, não é possível utilizá-lo.
+
+---
+
+*Autor: Kleber | Linux Fundamentals — DIO*
 
 
 
