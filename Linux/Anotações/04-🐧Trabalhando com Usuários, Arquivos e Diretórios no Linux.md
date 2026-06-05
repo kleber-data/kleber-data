@@ -858,6 +858,121 @@ useradd nome -p $(openssl passwd -6 senha123)
 
 ---
 
+
+## ```
+### 05/06/2026  Conhecendo o sistema de permissões
+
+
+**Ambiente:** Servidor EC2 (AWS) acessado via SSH  
+**Foco do Estudo:** Sistema de Permissões Nativo e Gestão de Usuários
+
+---
+
+## 📌 Visão Geral
+Estudo prático sobre o gerenciamento de usuários, grupos e o sistema de permissões do Linux (Leitura, Escrita e Execução). Análise de erros comuns de navegação e aplicação do conceito em cenários reais de arquitetura de software (SaaS).
+
+---
+
+## 📊 O Modelo de Permissões do Linux
+
+As permissões são divididas em três categorias de usuários, representadas por triplas de caracteres (`rwx`):
+
+| Tipo | Abreviação | Representação Octal | Função Prática |
+| :--- | :---: | :---: | :--- |
+| **Read** | `r` | `4` | Ler o conteúdo de um arquivo ou listar um diretório. |
+| **Write** | `w` | `2` | Alterar/salvar um arquivo ou criar/apagar itens em uma pasta. |
+| **Execute** | `x` | `1` | Rodar um script/programa ou entrar (`cd`) em um diretório. |
+| **Nula** | `-` | `0` | Sem nenhuma permissão de acesso. |
+
+### Estrutura de Leitura do Comando `ls -l`
+Ao rodar `ls -l /home`, o Linux exibe as permissões detalhadas:
+
+> **`drwxr-x--- 2 mariana mariana 4096 Jun 4 20:08 mariana`**
+
+* **`d`** ➔ Indica que o item é um **d**iretório (se fosse um arquivo, seria **`-`**).
+* **`rwx`** (1ª tripla) ➔ Permissões do **Dono** (Leitura, Escrita e Execução).
+* **`r-x`** (2ª tripla) ➔ Permissões do **Grupo** (Leitura e Execução).
+* **`---`** (3ª tripla) ➔ Permissões dos **Outros/Resto do Mundo** (Nenhum acesso).
+* **`mariana`** (1º nome) ➔ Usuário dono do diretório.
+* **`mariana`** (2º nome) ➔ Grupo associado ao diretório.
+
+---
+
+## ⚙️ Comandos Práticos Consolidados
+
+### 1. Gestão de Usuários e Grupos
+* **Excluir um usuário e apagar sua pasta home:**
+
+
+
+
+  sudo deluser --remove-home nome_do_usuario
+``
+
+
+
+
+- **Mudar dono e grupo de um diretório de forma explícita:**
+    
+    
+    
+    ```
+    sudo chown dono:grupo /caminho/diretorio/
+    ```
+    
+
+### 2. Manipulação de Permissões (`chmod`)
+
+- **Liberar acesso de leitura e execução para todos nas pastas do `/home`:**
+    
+    Bash
+    
+    ```
+    sudo chmod 755 /home/*
+    ```
+    
+    _(Nota histórica: No Ubuntu 20.04 ou anterior, as pastas vinham como `755` por padrão. A partir do Ubuntu 21.04+, o padrão de fábrica mudou para `750` (`drwxr-x---`) por motivos de privacidade)._
+    
+
+## 🔐 Diagnóstico de Laboratório (O que aconteceu na prática?)
+
+Durante os testes no servidor, foram mapeados os seguintes comportamentos do sistema:
+
+### Caso 1: Erro de `Permission denied` ao navegar
+
+- **Cenário:** O usuário `mariana` tentou dar `cd ubuntu` e o sistema bloqueou.
+    
+- **Motivo:** A pasta do usuário `ubuntu` estava com a permissão restritiva `drwxr-x---`. Como `mariana` se enquadra na categoria "Outros", ela tinha zero acesso.
+    
+- **Solução:** Aplicar `sudo chmod 755 /home/*` para permitir que outros usuários listem e entrem nos diretórios.
+    
+
+### Caso 2: Erro de `No such file or directory` após trocar de usuário
+
+- **Cenário:** Após rodar `su mariana`, o comando `cd ubuntu` falhou.
+    
+- **Motivo:** O comando `su` já havia iniciado a sessão da Mariana diretamente dentro da pasta `/home/ubuntu`. Digitar `cd ubuntu` fez o Linux procurar por `/home/ubuntu/ubuntu`, que não existe.
+    
+- **Solução:** Entender o _prompt_ do terminal; se você já está na pasta, não precisa tentar entrar nela novamente.
+    
+
+### Caso 3: Restrição do comando `sudo`
+
+- **Motivo:** O usuário `mariana` não estava listado no arquivo de administradores (`sudoers`). No Linux, apenas contas explicitamente autorizadas podem usar o comando `sudo`.
+    
+
+## 🏗️ Estrutura de Diretórios do Cenário de Teste
+
+Foi simulado um ambiente empresarial com dois setores distintos (`/adm` e `/ven`):
+
+| **Diretório** | **Dono** | **Grupo** | **Permissão Textual** | **Permissão Octal** |
+| ------------- | -------- | --------- | --------------------- | ------------------- |
+| `/adm`        | debora   | GRP_ADM   | `drwxrwxr-x`          | `775`               |
+| `/ven`        | mariana  | GRP_VEN   | `drwxrwxr-x`          | `775`               |
+
+- **Resultado do teste de grupo:** O usuário `daniel`, por pertencer ao grupo `GRP_VEN`, conseguiu ler (`cat`) e editar (`nano`) os arquivos dentro de `/ven` criados por `mariana`, validando a eficácia do trabalho em equipe via grupos do Linux.
+
+
 *Autor: Kleber*  
 *Curso: Linux Fundamentals — DIO*  
 *Última atualização: 04/06/2026*
