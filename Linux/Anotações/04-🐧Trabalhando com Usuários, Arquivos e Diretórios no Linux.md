@@ -90,13 +90,13 @@ ls | less    # avançado — setas para navegar, / para buscar, q para sair
 
 ### Identificação Visual de Arquivos e Diretórios
 
-| Visual | Significa |
-|---|---|
+| Visual                | Significa         |
+| --------------------- | ----------------- |
 | Nome com `/` no final | Diretório (pasta) |
-| Nome sem `/` | Arquivo |
-| Azul escuro | Diretório |
-| Branco/cinza | Arquivo comum |
-| Azul claro (ciano) | Link simbólico |
+| Nome sem `/`          | Arquivo           |
+| Azul escuro           | Diretório         |
+| Branco/cinza          | Arquivo comum     |
+| Azul claro (ciano)    | Link simbólico    |
 
 ---
 
@@ -971,6 +971,166 @@ Foi simulado um ambiente empresarial com dois setores distintos (`/adm` e `/ven`
 | `/ven`        | mariana  | GRP_VEN   | `drwxrwxr-x`          | `775`               |
 
 - **Resultado do teste de grupo:** O usuário `daniel`, por pertencer ao grupo `GRP_VEN`, conseguiu ler (`cat`) e editar (`nano`) os arquivos dentro de `/ven` criados por `mariana`, validando a eficácia do trabalho em equipe via grupos do Linux.
+
+
+
+
+## 06/06/2026 — Alterando Permissões e Permissões de Execução
+**Ambiente:** Servidor EC2 na AWS acessado via SSH
+
+---
+
+## 📌 O que foi feito
+Aplicação prática do sistema de permissões: alteração por número octal, permissões por arquivo específico, diretório público e permissões de execução para scripts.
+
+---
+
+## 🔢 Base Numérica de Permissões
+
+| Permissão | Letra | Valor |
+|---|---|---|
+| Leitura | R | 4 |
+| Gravação | W | 2 |
+| Execução | X | 1 |
+| Nenhuma | - | 0 |
+
+> Somando: R+W+X = 4+2+1 = **7** (permissão total)
+
+### Combinações mais usadas
+
+| Número | Permissão | Significa |
+|---|---|---|
+| 7 | rwx | leitura + escrita + execução |
+| 5 | r-x | leitura + execução |
+| 4 | r-- | somente leitura |
+| 0 | --- | sem permissão |
+
+---
+
+## ⚙️ Comandos Aplicados
+
+### Alterar permissão de diretório
+```bash
+chmod 750 /adm/     # dono: tudo | grupo: leitura+execução | outros: nada
+chmod 775 /ven/     # dono: tudo | grupo: tudo | outros: leitura+execução
+chmod 777 /publica/ # todos: tudo (diretório público)
+````
+
+### Alterar dono e grupo de arquivo específico
+
+Bash
+
+```
+chown root:GRP_ADM texto-adm.txt
+```
+
+### Alterar permissão de arquivo específico
+
+Bash
+
+```
+chmod 750 texto-adm.txt   # dono: tudo | grupo: leitura+execução | outros: nada
+chmod 644 date.sh         # dono: leitura+escrita | grupo: leitura | outros: leitura
+```
+
+### Permissão de execução para scripts
+
+Bash
+
+```
+chmod +x date.sh    # adiciona execução para todos
+chmod -x date.sh    # remove execução de todos
+chmod 744 date.sh   # dono executa, grupo e outros só leem
+```
+
+## 🔍 O que aconteceu na prática
+
+### Debora (dono do /adm) entrou e criou arquivo:
+
+Bash
+
+```
+cd /adm/
+nano texto-debora.txt    # funcionou — é dona do diretório
+```
+
+### Rodrigo (mesmo grupo GRP_ADM) leu mas não escreveu:
+
+Bash
+
+```
+cat texto-debora.txt     # funcionou — grupo tem leitura
+nano texto-rodrigo.txt   # bloqueado — Directory '.' is not writable
+```
+
+> `/adm` estava com `chmod 750` — grupo só tem leitura e execução, sem escrita.
+
+### Maisa (GRP_VEN) foi bloqueada no /adm:
+
+Bash
+
+```
+cd /adm/    # Permission denied — outros sem permissão nenhuma (750)
+cd /ven/    # funcionou — GRP_VEN tem acesso
+```
+
+### Maisa apagou arquivo da mariana no /ven:
+
+Bash
+
+```
+rm arquivo-mariana.txt    # funcionou — /ven com 775, grupo tem escrita
+```
+
+### Rodrigo NÃO conseguiu apagar arquivo da maisa no /ven:
+
+Bash
+
+```
+rm arquivo-maisa.txt    # Permission denied
+```
+
+> Rodrigo não é do GRP_VEN — cai em "outros" que tem só leitura.
+
+### Diretório público /publica com 777:
+
+Bash
+
+```
+mkdir /publica
+chmod 777 /publica    # qualquer usuário lê, escreve e executa
+```
+
+> Qualquer usuário do sistema pode criar e apagar arquivos aqui.
+
+### Script sem permissão de execução:
+
+Bash
+
+```
+./date.sh    # Permission denied — arquivo criado sem o bit +x
+chmod +x date.sh    # adiciona execução
+./date.sh    # funciona
+chmod -x date.sh    # remove execução
+chmod +x date.sh    # adiciona de volta
+```
+
+## 💡 Observações Pessoal
+
+- `chmod 750` é o padrão mais seguro para diretórios de equipe: dono controla tudo, grupo acessa, estranhos não veem nada.
+    
+- `chmod 777` só em diretório realmente público e temporário. Em produção no SaaS jamais usar 777 em pasta com dados de pacientes.
+    
+- `chmod +x` é o atalho mais prático para dar execução sem precisar lembrar o número octal.
+    
+- Um arquivo criado sem `chmod +x` nunca roda como script, mesmo que o conteúdo esteja correto.
+    
+
+## 📌 Resumo do pomodoro
+
+**O que foi estudado hoje:** Alteração de permissões por número octal e por símbolo (+x/-x) em diretórios e arquivos específicos num servidor real.
+
+**Por que isso importa na prática:** Permissão errada num servidor de produção expõe dados de pacientes ou permite que qualquer usuário apague arquivos críticos.
 
 
 *Autor: Kleber*  
