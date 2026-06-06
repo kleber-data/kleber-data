@@ -15,23 +15,6 @@
 
 ----------------------------
 
-### Minhas Tecnologias
-
-<div align="center">
-  <table style="border: none;">
-    <tr>
-      <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="45" alt="Git" /></td>
-      <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="45" alt="GitHub" /></td>
-      <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" width="45" alt="Linux" /></td>
-      <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="45" alt="SQL" /></td>
-      <td style="border: none;"><img src="https://cdn.pixabay.com/photo/2021/01/30/12/15/excel-5963669_1280.png" width="45" alt="Excel" /></td>
-      <td style="border: none;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="45" alt="Python" /></td>
-    </tr>
-  </table>
-</div>
-
-----------------------------
-
 
 ### 🚀 Minha Jornada de Evolução
 
@@ -47,15 +30,6 @@ Acredito que a constância nos estudos é o que constrói um bom profissional. A
 
 ----------------------------
 
-
-### 📊 Meu Desempenho e Estatísticas
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=kleber-data&show_icons=true&theme=radical&include_all_commits=true&count_private=true" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=kleber-data&layout=compact&theme=radical&hide_border=true&langs_count=6" width="41%" />
-</p>
-
-----------------------------
 
 ### 🛠️  Habilidades e Ferramentas
 
