@@ -1,21 +1,17 @@
-# 🐧 Meus Estudos de Linux
-**Autor:** Kleber  
-**Curso Base:** Linux Fundamentals — DIO  
-**Última atualização:** 04/06/2026  
+# 📂 Meus Estudos de Linux
 
----
+Este diretório contém uma coleção de repositórios, estudos e anotações relacionados ao curso de Linux Fundamentals (DIO).
 
-## 📌 Visão Geral
-Este repositório/diretório foi criado para centralizar e organizar todo o meu progresso, aprendizado e aplicações práticas no ecossistema Linux. Ele serve tanto como meu caderno de consultas digital quanto como portfólio técnico.
+## 📂 Estrutura da Pasta
 
----
-
-## 📂 Estrutura do Diretório
-
-A pasta está organizada de forma semântica para facilitar a navegação:
-
-```text
-📂 Linux/
 * 📝 **[Anotações](./Anotações):** Anotações básicas sobre o curso e comandos consolidados.
 * 📜 **[Certificados](./Certificados):** Certificados de conclusão dos módulos individuais e certificado final.
 * 🚀 **[Projetos](./Projetos):** Scripts, laboratórios práticos e cenários criados durante o curso.
+
+## Objetivo
+
+Facilitar os conhecimentos técnicos sobre o ecossistema Linux para facilitar a consulta e o aprendizado contínuo.
+
+---
+
+*Mantido por [kleber-data](https://github.com/kleber-data)*
