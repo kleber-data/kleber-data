@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linux/Projetos/IaC/README.md.md",
+                "file": "Linux/Anotações/04-Trabalhando com Usuários, Arquivos e Diretórios no Linux.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README.md"
+              "title": "04-Trabalhando com Usuários, Arquivos e Diretórios no Linux"
             }
           }
         ]
@@ -183,15 +183,15 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "525375723c00abc5",
+  "active": "04189b7f1ad5f3d2",
   "lastOpenFiles": [
     "Linux/Projetos/IaC/# Resumo do Projeto IaC.md",
     "Linux/Projetos/IaC/README.md.md",
+    "GitHub/Anotações/Resumo GitHub.md",
     "Linux/Projetos/IaC",
     "Linux/Projetos/README.md",
     "Linux/Anotações/04-Trabalhando com Usuários, Arquivos e Diretórios no Linux.md",
     "Linux/Anotações/README.md",
-    "GitHub/Anotações/Resumo GitHub.md",
     "Linux/Anotações/Comandos Básicos.md",
     "Linux/Anotações/04-🐧Trabalhando com Usuários, Arquivos e Diretórios no Linux.md",
     "Linux/Anotações/02-instalando o Linux.md",
