@@ -104,5 +104,53 @@ Versão mais moderna e amigável do `apt-get`. Recomendada para uso interativo n
 **O que foi estudado hoje:** Gerenciamento de pacotes no Linux com `apt` e `apt-get` — instalação, atualização e remoção de software. **Por que isso importa na prática:** Todo servidor de produção precisa ter seus pacotes atualizados e gerenciados. 
 
 ---
+## 16/06/2026 - # 📑 Gerenciamento de Pacotes no Linux (APT)
+
+## 📌 Ciclo de Vida de um Aplicativo
+No Linux (distribuições baseadas em Debian/Ubuntu), o gerenciamento de softwares no terminal segue três passos principais: **Buscar**, **Instalar** e **Remover**.
+
+---
+
+## 🔍 1. Buscar Aplicativos
+Quando você precisa de uma ferramenta mas não sabe o nome exato do pacote, ou quer ver se ele está disponível.
+
+* **Comando:** `apt search <nome_do_programa>`
+* **Exemplo:** `apt search zip` *(Mostra todos os pacotes relacionados a "zip")*
+
+> 💡 **Nota:** Antes de buscar ou instalar, é sempre boa prática rodar o comando `apt update` para atualizar a lista de pacotes do sistema com as versões mais recentes.
+
+---
+
+## 📥 2. Realizar Instalação
+Para baixar e instalar um programa e todas as dependências que ele precisa para funcionar.
+
+* **Comando:** `apt install <nome_do_programa>`
+* **Exemplo prático:** `apt install unzip`
+
+---
+
+## ❌ 3. Remover Aplicativos
+Existem duas formas de deletar um programa do sistema, dependendo do nível de limpeza que você deseja:
+
+### Apenas o programa
+Remove o executável do software, mas **mantém** os arquivos de configuração que você alterou (caso decida reinstalar no futuro).
+* **Comando:** `apt remove <nome_do_programa>`
+
+### Limpeza Completa (Purge)
+Remove o programa e **deleta absolutamente todos** os arquivos de configuração associados a ele.
+* **Comando:** `apt purge <nome_do_programa>`
+
+---
+
+## 🛠️ Prática Realizada
+1. Tentativa de usar o comando `unzip` (sistema acusou que não existia).
+2. Instalação da ferramenta via `apt install unzip`.
+3. Execução com sucesso para extrair o arquivo `main.zip`.
+
+
+
+
+
+
 
 _Autor: Kleber | Linux Fundamentals — DIO_
