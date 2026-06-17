@@ -104,7 +104,7 @@ Versão mais moderna e amigável do `apt-get`. Recomendada para uso interativo n
 **O que foi estudado hoje:** Gerenciamento de pacotes no Linux com `apt` e `apt-get` — instalação, atualização e remoção de software. **Por que isso importa na prática:** Todo servidor de produção precisa ter seus pacotes atualizados e gerenciados. 
 
 ---
-## 16/06/2026 - # 📑 Gerenciamento de Pacotes no Linux (APT)
+## 16/06/2026 -  📑 Gerenciamento de Pacotes no Linux (APT)
 
 ## 📌 Ciclo de Vida de um Aplicativo
 No Linux (distribuições baseadas em Debian/Ubuntu), o gerenciamento de softwares no terminal segue três passos principais: **Buscar**, **Instalar** e **Remover**.
@@ -147,7 +147,69 @@ Remove o programa e **deleta absolutamente todos** os arquivos de configuração
 2. Instalação da ferramenta via `apt install unzip`.
 3. Execução com sucesso para extrair o arquivo `main.zip`.
 
+## # 17/06/2026 — Gerenciamento de Pacotes: Atualização do Sistema Operacional
 
+## Conceito principal
+
+Atualizar o sistema operacional significa manter os pacotes nas versões mais recentes — tanto o índice de repositórios quanto os pacotes instalados.
+
+**Ponto crítico:** se houver uma aplicação rodando em produção, **nunca atualizar diretamente no servidor de produção sem antes passar por um ambiente de teste.** O risco é a atualização quebrar alguma dependência da aplicação.
+
+**Boas práticas antes de atualizar:**
+
+- Ter um ambiente de teste que espelhe o de produção
+- Fazer um **snapshot** da máquina antes de atualizar — se der problema, é possível reverter
+- Validar o comportamento da aplicação no ambiente de teste após a atualização
+- Só subir para produção depois de confirmar que está tudo ok
+
+---
+
+## Comandos
+
+|Comando|O que faz|
+|---|---|
+|`apt update`|Atualiza o índice de repositórios (lista de pacotes disponíveis)|
+|`apt upgrade -y`|Instala as versões mais recentes dos pacotes já instalados (`-y` confirma automaticamente)|
+|`shutdown 0`|Reinicia/desliga a máquina imediatamente (útil após atualizações de kernel)|
+
+---
+
+## Bloco de código
+
+bash
+
+```bash
+# Atualizar índice de repositórios
+apt update
+
+# Atualizar todos os pacotes instalados
+apt upgrade -y
+
+# Reiniciar a máquina
+shutdown 0
+```
+
+---
+
+## Observações pessoais
+
+- O `apt update` não instala nada — só atualiza a "lista de preços" do repositório. O `apt upgrade` é que de fato instala.
+- O `-y` no upgrade evita ter que confirmar manualmente cada pacote — útil em scripts de automação.
+- A dica do snapshot é ouro: no EC2 da AWS isso seria um **AMI** ou **snapshot do EBS** antes de rodar o upgrade em produção.
+- Em ambiente corporativo isso se chama **Change Management** — qualquer atualização passa por aprovação e janela de manutenção.
+
+---
+
+## Resumo do Pomodoro
+
+**O que foi estudado hoje:**  
+Comandos para atualização do sistema operacional Linux via APT (`apt update` e `apt upgrade`), e as boas práticas de segurança antes de atualizar ambientes em produção — uso de ambiente de teste e snapshots para rollback.
+
+**Por que isso importa na prática:**  
+Atualizar um servidor de produção sem teste prévio é uma das causas mais comuns de incidentes em empresas. Um engenheiro de dados precisa saber operar servidores Linux com segurança, especialmente em ambientes cloud onde os dados da organização estão em jogo.
+
+**Exemplo do mundo real:**  
+Uma equipe de dados tem um pipeline rodando no Linux. O admin roda `apt upgrade` direto em produção sem testar antes. A atualização muda a versão do Python de 3.10 para 3.12, quebra uma biblioteca do pipeline, e os dados param de processar na madrugada. Com um snapshot e ambiente de teste, isso seria detectado antes e revertido em minutos.
 
 
 
