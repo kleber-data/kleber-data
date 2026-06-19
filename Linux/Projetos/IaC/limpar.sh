@@ -1,8 +1,3 @@
-## Script de Limpeza (limpar.sh)
-
-Crie o arquivo usando `nano limpar.sh` e insira o código abaixo para redefinir o servidor sempre que precisar reiniciar os testes.
-
-
 #!/bin/bash
 
 echo "Iniciando a limpeza do ambiente..."
