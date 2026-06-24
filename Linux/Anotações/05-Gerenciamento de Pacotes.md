@@ -213,6 +213,49 @@ Uma equipe de dados tem um pipeline rodando no Linux. O admin roda `apt upgrade`
 
 
 
+## 24/06/2026  Gerenciamento de Pacotes no Linux
+
+
+## 1. Ambiente Desktop (Ubuntu Nativo)
+No Ubuntu Desktop, a instalação de aplicativos pode ser feita de duas formas, ficando a critério do usuário:
+* **Interface Gráfica:** Utilizando a loja de aplicativos nativa (Ubuntu Software / App Center), que possui uma experiência visual muito semelhante à Windows Store ou Mac App Store.
+* **Terminal (CLI):** Utilizando o gerenciador de pacotes `apt` com o comando:
+  bash
+  sudo apt install nome_do_aplicativo
+
+## 2. Padrões de Arquivos e Extensões (.deb vs .rpm)
+
+Assim como no ecossistema Windows estamos acostumados a instalar programas por meio de arquivos executáveis com extensão `.exe` ou `.msi` (Microsoft Installer), no mundo Linux o formato muda de acordo com a base da distribuição:
+
+- **Base Debian/Ubuntu:** Utiliza arquivos com a extensão `.deb`.
+    
+- **Base Red Hat:** Utiliza arquivos com a extensão `.rpm`.
+    
+
+## 3. Gerenciamento de Pacotes em Outras Distribuições (Red Hat, Fedora, CentOS)
+
+Para distribuições da família Red Hat e sistemas derivados, as ferramentas de gerenciamento de pacotes e os comandos são diferentes do ecossistema Debian.
+
+Principais gerenciadores por sistema:
+
+- **Fedora / RHEL / CentOS:** Utilizam o `dnf` (moderno) e o `yum` (legado/compatibilidade).
+    
+- **Amazon Linux:** Utiliza `yum` / `dnf`.
+    
+- **openSUSE (SUSE Linux):** Utiliza o gerenciador `zypper`.
+    
+
+## 4. Gerenciamento em Ambientes de Servidor (Sem Interface Gráfica / CLI)
+
+Considerando um cenário de administração de servidores onde não há ambiente gráfico disponível, todo o gerenciamento de pacotes deve ser feito obrigatoriamente via linha de comando (terminal).
+
+### Resumo dos Principais Comandos (Cheat Sheet)
+
+|**Sistema Operacional**|**Atualizar Repositórios**|**Instalar Pacote**|**Remover Pacote**|
+|---|---|---|---|
+|**Ubuntu / Debian**|`sudo apt update`|`sudo apt install <pacote>`|`sudo apt remove <pacote>`|
+|**Fedora / Red Hat**|`sudo dnf check-update`|`sudo dnf install <pacote>`|`sudo dnf remove <pacote>`|
+|**openSUSE**|`sudo zypper refresh`|`sudo zypper install <pacote>`|`sudo zypper remove <pacote>`|
 
 
 _Autor: Kleber | Linux Fundamentals — DIO_
