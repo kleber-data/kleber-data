@@ -22,11 +22,11 @@ Um pacote no Linux é um arquivo que contém um software ou atualização pronto
 
 ## 🐧 Diferença entre Distribuições
 
-|Distribuição|Gerenciador de Pacotes|
-|---|---|
-|Debian / Ubuntu|`apt` / `apt-get`|
-|Red Hat / Fedora / CentOS|`yum` / `dnf`|
-|Arch Linux|`pacman`|
+| Distribuição              | Gerenciador de Pacotes |
+| ------------------------- | ---------------------- |
+| Debian / Ubuntu           | `apt` / `apt-get`      |
+| Red Hat / Fedora / CentOS | `yum` / `dnf`          |
+| Arch Linux                | `pacman`               |
 
 > Os comandos desta aula são válidos para **Debian e Ubuntu** — mesma base, mesmos comandos.
 
@@ -256,6 +256,172 @@ Considerando um cenário de administração de servidores onde não há ambiente
 |**Ubuntu / Debian**|`sudo apt update`|`sudo apt install <pacote>`|`sudo apt remove <pacote>`|
 |**Fedora / Red Hat**|`sudo dnf check-update`|`sudo dnf install <pacote>`|`sudo dnf remove <pacote>`|
 |**openSUSE**|`sudo zypper refresh`|`sudo zypper install <pacote>`|`sudo zypper remove <pacote>`|
+
+
+## ````
+## 28/06/2026 Copiando Arquivos e Manipulando Processos — Linux
+
+## 1. Copiando Arquivos (`cp`)
+Antes de realizar uma cópia, defina três coisas fundamentais:
+1. Onde está o arquivo (**origem**)
+2. Para onde ele vai (**destino**)
+3. Quais arquivos serão copiados (específico, todos, por extensão)
+
+### Sintaxe básica
+```bash
+cp <origem> <destino>
+````
+
+_No Ubuntu e na maioria das distribuições, o `cp` não exibe mensagem de sucesso. Use o comando `ls` no destino para verificar._
+
+### Exemplos práticos
+
+Bash
+
+```
+# Copiar um arquivo específico para a pasta /disk2/
+cp /home/denilson/arquivo.txt /disk2/
+
+# Copiar todos os arquivos .txt usando o caractere curinga (*)
+cp /home/denilson/*.txt /disk2/
+
+# Copiar todos os arquivos que começam com a letra "a"
+cp /home/denilson/a* /disk2/
+
+# Copiar absolutamente todos os arquivos do diretório
+cp /home/denilson/* /disk2/
+```
+
+> [!INFO] O Curinga `*`
+> 
+> O asterisco (`*`) representa qualquer sequência de caracteres em comandos de terminal.
+
+### Opções importantes do `cp`
+
+|**Opção**|**Significado**|
+|---|---|
+|`-i`|**Interativo:** Pergunta antes de sobrescrever um arquivo existente.|
+|`-r`|**Recursivo:** Copia diretórios inteiros e seus subconteúdos (essencial para backups).|
+|`-v`|**Verboso:** Exibe no terminal o progresso detalhado do que está sendo copiado.|
+
+Bash
+
+```
+# Exemplo combinando opções (recursivo + verboso)
+cp /home/denilson/* /disk2/ -rv
+```
+
+> [!WARNING] Cuidado
+> 
+> Sem a opção `-i`, se já existir um arquivo com o mesmo nome no destino, ele será **sobrescrito silenciosamente**.
+
+## 2. Movendo e Renomeando Arquivos (`mv`)
+
+O princípio é idêntico ao do `cp` (origem e destino). A diferença crucial é que o arquivo original deixa de existir na origem após a operação.
+
+### Sintaxe básica
+
+Bash
+
+```
+mv <origem> <destino>
+```
+
+### Exemplos práticos
+
+Bash
+
+```
+# Mover um arquivo mantendo o mesmo nome
+mv /home/denilson/planilhas.xlsx /disk2/
+
+# Mover pedindo confirmação se for sobrescrever algo
+mv /home/denilson/planilhas.xlsx /disk2/ -i
+```
+
+### Renomear arquivos com `mv`
+
+O Linux não possui um comando exclusivo "rename" nativo padrão; usa-se o `mv` apontando para o mesmo diretório, mudando apenas o nome do arquivo final:
+
+Bash
+
+```
+mv bancodedados.mdf banco_de_dados.mdf
+```
+
+### Opções importantes do `mv`
+
+|**Opção**|**Significado**|
+|---|---|
+|`-i`|**Interativo:** Pergunta antes de sobrescrever.|
+|`-f`|**Force:** Força a substituição sem fazer perguntas.|
+|`-v`|**Verboso:** Mostra o arquivo que está sendo movido/renomeado.|
+
+> [!NOTE] Diferença Importante
+> 
+> O comando `mv` **não possui** a opção `-r` (recursivo). Ele consegue mover diretórios inteiros nativamente sem precisar de parâmetros adicionais.
+
+## 3. Visualizando e Encerrando Processos
+
+### Listar processos (`ps`)
+
+Bash
+
+```
+ps        # Mostra apenas os processos do usuário atual abertos neste terminal
+ps -a     # Mostra processos de todos os usuários vinculados a um terminal
+ps -au    # Inclui o nome do usuário e o horário de início do processo
+ps -aux   # Inclui também processos que rodam em background/fora do console (completo)
+```
+
+### Encerrar um processo (`kill` e `killall`)
+
+Bash
+
+```
+# Encerrar utilizando o PID (ID numérico do processo)
+kill 1234  
+
+# Encerrar todos os processos associados a um programa pelo nome
+killall chrome
+```
+
+> [!TIP]
+> 
+> O `killall` é muito útil para navegadores e serviços que abrem múltiplos subprocessos simultâneos.
+
+### Usuários logados no servidor (`w` e `who`)
+
+Bash
+
+```
+w         # Mostra quem está logado, horário de login e o que estão executando
+who -a    # Mostra os usuários logados acompanhados do PID de cada sessão
+```
+
+Para derrubar/desconectar a sessão de um usuário indesejado no servidor:
+
+Bash
+
+```
+kill <PID_DA_SESSAO>
+```
+
+## Resumo Geral de Comandos
+
+|**Comando**|**Função**|
+|---|---|
+|`cp origem destino`|Copia arquivos|
+|`cp -r`|Copia diretórios recursivamente|
+|`cp -i`|Pergunta antes de sobrescrever na cópia|
+|`cp -v`|Exibe o progresso da cópia|
+|`mv origem destino`|Move ou renomeia arquivos e pastas|
+|`mv -i`|Pergunta antes de sobrescrever no movimento|
+|`ps -aux`|Lista detalhadamente todos os processos do sistema|
+|`kill PID`|Encerra um processo pelo seu número identificador|
+|`killall nome`|Encerra todos os subprocessos de um programa pelo nome|
+|`w`|Exibe usuários online e suas atividades atuais|
+|`who -a`|Exibe usuários online com os PIDs das sessões|
 
 
 _Autor: Kleber | Linux Fundamentals — DIO_
