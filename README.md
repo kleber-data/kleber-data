@@ -9,7 +9,7 @@
 
 🛡️ Analista de Segurança Eletrónica.
 
-🌱 Estudante de Engenharia / Ciência de Dados.
+🌱 Estudante de Análise de Dados
 
 📫 [Acesse o meu LinKedin](https://www.linkedin.com/in/kleber-cerqueira-b08a93191)
 
