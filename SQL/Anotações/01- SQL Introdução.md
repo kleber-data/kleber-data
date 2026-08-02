@@ -255,7 +255,6 @@ Aqui está a versão organizada:
 
 ---
 
-markdown
 
 ```markdown
 ## 01/08/2026 — SGBDs: Sistemas de Gerenciamento de Banco de Dados
@@ -396,3 +395,59 @@ Utiliza a linguagem de manipulação dos dados (DML), geralmente para recuperar 
 - Alterar e extrair informações
 - Operações duráveis, agrupadas para execução
 ```
+
+
+## 02/08/2026 — SGBDs mais Utilizados no Mercado
+
+### 1. Oracle
+
+Pioneiro no mercado. Arquitetura voltada para performance, atendendo de forma bastante assertiva a demandas de grande gestão corporativa. Possui posição inabalável dentro do mercado — forte em segurança, auto escalabilidade e tolerância a falhas nos servidores.
+
+### 2. MySQL
+
+Também mantido pela Oracle. É de código aberto, bastante popular no universo open source — geralmente o mais utilizado por iniciantes em SQL. Tem boa integração com PHP. A empresa criadora original do MySQL acabou sendo vendida, e hoje o projeto é mantido pela Oracle.
+
+### 3. SQL Server
+
+Da Microsoft. Mais sofisticado em BI (Business Intelligence), com grande investimento em performance. Utiliza tecnologia *in-memory* e, em alguns casos, possui fluxos integrados com Excel. É uma plataforma resiliente e bem robusta.
+
+### 4. PostgreSQL
+
+Bem robusto, referência em especificação e extremamente aderente a padrões. Originado de um projeto específico (Ingres/POSTGRES). É, geralmente, a primeira escolha para programadores voltados para Python. Open source, bem robusto, com recursos NoSQL em modelo híbrido e suporte nativo a esses recursos.
+
+### 5. MongoDB
+
+Orientado a documentos. Armazena dados em blocos, agrupando dentro de um mesmo bloco os detalhes relacionados — por exemplo, os dados de um usuário residem dentro do mesmo objeto/documento. Muito usado quando não há previsibilidade na estrutura dos dados.
+
+### 6. Redis
+
+Orientado a chave-valor. Performático e escalável, muito usado como cache. Armazena os dados em memória, o que reduz drasticamente o tempo de busca.
+
+---
+
+### O que influencia a escolha de um SGBD
+
+- Popularidade
+- Tempo de mercado
+- Documentação
+- Robustez
+- Confiabilidade
+- Segurança
+- Multiplataforma
+
+---
+
+## A Era dos Dados e o Futuro da Modelagem
+
+O contexto majoritário do mercado ainda está dentro do modelo **relacional**.
+
+### Papel central — Sistemas corporativos
+
+Em grandes empresas, as requisições mais comuns seguem a proporção **80/20**, geralmente sendo operações simples: `MIN`, `MAX`, `COUNT`, média, soma.
+
+### Fatores que influenciam a complexidade de um cenário de dados
+
+- **Número de tarefas**
+- **Quantidade de dados** — quantidade de transações
+- **Heterogeneidade** — dados vindos de diversas fontes diferentes
+- **Computação paralela e distribuída** — relacionada ao contexto e à complexidade da pesquisa/processamento
