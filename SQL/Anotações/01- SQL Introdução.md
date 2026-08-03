@@ -451,3 +451,109 @@ Em grandes empresas, as requisições mais comuns seguem a proporção **80/20**
 - **Quantidade de dados** — quantidade de transações
 - **Heterogeneidade** — dados vindos de diversas fontes diferentes
 - **Computação paralela e distribuída** — relacionada ao contexto e à complexidade da pesquisa/processamento
+  
+  
+  ## 03/08/2026 — Paradigma Científico e o Novo Cenário de Dados
+
+### Paradigma Científico
+
+Seguindo a ordem cronológica dos paradigmas: o modelo mais antigo era muito experimental — tentativa e erro para tentar provar algo, com descobertas por acidente. Exemplo: os diversos experimentos em busca da teoria da eletricidade, ou Thomas Edison na criação da lâmpada.
+
+Depois vieram o mapeamento e a simulação — dinâmica molecular, dinâmica de fluidos, sistemas que pudessem ser simulados. Instrumentos e simulações passaram a gerar um grande volume de dados.
+
+**Novo modelo:** baseado na análise e exploração de dados.
+
+- Análise utilizando IA
+- Análise com Machine Learning
+
+Novamente aparecem os **3 V's**: velocidade, variedade e volume.
+
+#### Requisitos desse novo modelo
+
+- Composição
+- Execução
+- Análise
+- Reutilização
+- Reprodutibilidade
+- Abstração
+- Escalabilidade
+
+#### Experimentos realizados em larga escala
+
+- **Paralelismo** — múltiplos processadores operando concorrentemente.
+- **Big Data** — processamento paralelo de dados, com persistência e particionamento.
+- **Cloud** — uso de recursos de terceiros, soluções de tecnologia como serviço.
+
+---
+
+### High Performance Computing (HPC)
+
+- Nós de processamento
+- Sistemas de arquivos paralelos, sem persistência
+- Modelos: MPI, OpenMP, OpenCL
+- Modelos: MapReduce, Spark, SGBDs paralelos
+
+---
+
+### Novo Cenário
+
+**Data Career:** carreira em tecnologia voltada a dados — o valor está nos dados gerados.
+
+**Decisões Data-Driven:** decidir como tomar decisões com base em dados, envolvendo gerenciamento, marketing, análise e interpretação — áreas estratégicas.
+
+Fluxo: **Análise → Entenda → Decida**
+
+---
+
+### Modelos NoSQL
+
+- Documentos
+- Wide-Column
+- Key-Value
+- Grafos
+- Orientado a objetos
+
+#### MongoDB — Orientado a Documentos
+
+- Baixa curva de aprendizagem
+- Baseado em JSON
+- Escalabilidade
+- Multiplataforma
+- Transações ACID para múltiplos documentos
+- Consulta
+
+---
+
+### SGBDs na Cloud
+
+>  "SGBD na Cloud" significa não instalar o PostgreSQL/MySQL/etc. em um servidor próprio, e sim usar um provedor (AWS, Google Cloud, Azure) que já entrega o banco pronto, gerenciado — cuidando de backup automático, escalabilidade, atualização de versão e alta disponibilidade por você.
+>
+> Exemplos reais: **AWS RDS** (Postgres/MySQL gerenciado), **Google Cloud SQL**, **Supabase** (Postgres gerenciado com foco em produtos indie/SaaS) e **Neon** (Postgres serverless). 
+>
+> Isso conecta direto com o que vimos sobre EC2 nas suas anotações de Linux: assim como você provisionou uma VM na AWS, dá pra provisionar um banco de dados "pronto pra usar" sem precisar instalar e configurar o PostgreSQL manualmente no servidor. Pra Bellafy, essa é uma decisão futura relevante: banco autogerenciado na VM (mais controle, mais trabalho) vs. banco gerenciado na nuvem (menos trabalho operacional, custo recorrente maior). Fica registrado como ponto de decisão para quando a arquitetura de infraestrutura for formalizada em ADR.
+
+---
+
+### Mundo Real — Exemplos de uso
+
+| Empresa | SGBDs utilizados |
+|---|---|
+| Facebook | Cassandra / MySQL |
+| Instagram | Cassandra / PostgreSQL |
+| Netflix | Oracle Database / MySQL |
+
+---
+
+### Mercado de Dados
+
+#### Engenheiro de Dados
+
+Responsável pelo desenho, construção e sustentação das soluções de dados. Extrai dados de fontes heterogêneas e os disponibiliza para serem consumidos por analistas e cientistas de dados.
+
+#### Cientista de Dados
+
+Responsável por modelagem, reconhecimento de padrões e predição. Busca responder perguntas atreladas ao contexto do negócio, gerando insights através de técnicas de modelagem.
+
+#### Analista de Dados
+
+Responsável pela criação de dashboards e apresentação visual dos dados. Busca entender o comportamento do negócio a partir dos dados, realiza diagnósticos, identifica possíveis motivos para comportamentos observados e acompanha métricas.
