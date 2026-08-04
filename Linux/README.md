@@ -8,6 +8,7 @@ Este diretório contém uma coleção de repositórios, estudos e anotações re
 * 📜 **[Certificados](./Certificados):** Certificados de conclusão dos módulos individuais e certificado final.
 * 🚀 **[Projetos](./Projetos):** Scripts, laboratórios práticos e cenários criados durante o curso.
 
+
 ## Objetivo
 
 Facilitar os conhecimentos técnicos sobre o ecossistema Linux para facilitar a consulta e o aprendizado contínuo.
