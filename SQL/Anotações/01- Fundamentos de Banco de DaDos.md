@@ -564,3 +564,6 @@ Responsável por modelagem, reconhecimento de padrões e predição. Busca respo
 #### Analista de Dados
 
 Responsável pela criação de dashboards e apresentação visual dos dados. Busca entender o comportamento do negócio a partir dos dados, realiza diagnósticos, identifica possíveis motivos para comportamentos observados e acompanha métricas.
+
+
+
