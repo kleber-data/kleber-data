@@ -217,7 +217,7 @@ O GitHub oferece uma **camada gratuita** para desenvolvedores individuais:
 
 ### **21/03/2026 - Conectando o Local ao Remoto e Sobrevivendo a Conflitos**
 
-A aula de hoje foi focada na prática de **Sincronização e Resolução de Problemas** em um ambiente Linux (Ubuntu).
+A aula de hoje foi focada na prática de **Sincronização e Resolução de Problemas** em um ambiente [[01-Introdução-ao-sistema-operacional-linux|Linu]] (Ubuntu).
 
 **1. Ciclo de Publicação (Local ➔ Nuvem)** Aprendemos que ter o código no PC não é o fim. O fluxo para atualizar o GitHub segue o padrão:
 
@@ -300,3 +300,7 @@ A criação de equipes na sua organização permite maior flexibilidade para col
 2. Faça equipes com base em interesses ou tecnologias específicas para facilitar revisões de código. As pessoas podem participar conforme seus interesses ou habilidades.
     
 3. Conecte suas equipes no GitHub com seu provedor de identidade (IdP) para automatizar atualizações e simplificar tarefas administrativas, como adicionar membros ou ajustar permissões. Isso reduz a necessidade de atualizações manuais.
+
+
+### Comandos GitHub:
+[[Comandos GitHub]]
