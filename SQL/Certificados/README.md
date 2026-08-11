@@ -4,4 +4,4 @@ Repositório destinado ao armazenamento e organização dos meus certificados de
 
 ## Certificados 
 
-[[01-Introdução-BD.pdf]]
+[01-Introdução-BD.pdf](./01-Introdução-BD.pdf)
